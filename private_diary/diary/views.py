@@ -17,7 +17,9 @@ class InquiryView(generic.FormView):
     success_url = reverse_lazy('diary:inquiry')
 
     def form_valid(self, form):
-        form.send_email()
+        #form.send_email()
+        print("aaaaaaaaaaaaaaaaaaaaa")
         messages.success(self.request,'メッセージを送信しました。')
         logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
+        print(form.cleaned_data['name'])
         return super().form_valid(form)
