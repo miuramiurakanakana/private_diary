@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>問診票入力画面</title>
+
+    <link rel="stylesheet" href="system.css">
+    <link rel="stylesheet" href="questionput.css">
+    <div class="bg_pattern Cross"></div>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+</head>
+
+<body>
+    <div class="tabs1">
+
+        <!-- ヘッダーロゴ -->
+        <div class="logo"></div>
+
+        <!-- ハンバーガーメニュー部分 -->
+        <div class="nav">
+
+        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+
+        <!-- ハンバーガーアイコン -->
+        <label for="drawer_input" class="drawer_open"><span></span></label>
+
+        <!-- メニュー -->
+        <a href="#"></a>
+        <nav class="nav_content">
+        <ul class="nav_list">
+            <li class="nav_item"><a href="">メニュー</a></li>
+            <li class="nav_item"><a href="">トップ</a></li>
+            <li class="nav_item"><a href="">ログアウト</a></li>
+        </ul>
+        </nav>
+        </a>
+
+    <form method="get" action="input_tel.html">
+        <span>作成日:</span>
+        <input type="date" id="start" name="trip-start"
+        value="2022-12-19"
+        min="2022-12-31" max="2090-12-31">
+        <span>病院名:</span>
+        <input type="text" name="id"></form>
+        <span>体温：</span>
+        <input type="text" name="temp" size="2" maxlength="2" autocomplete="tempature"><span>度</span><br>
+
+    <h4>すべての項目を入力してください。</h4>
+       <span>おなまえ</span>
+        <input type="text" name="id" autocomplete="name"></span><br>
+        <span>姓</span>
+        <input type="text" name="family-name" autocomplete="family-name">
+        <span>名</span>
+        <input type="text" name="given-name" autocomplete="given-name"><br><br>
+        <span>生年月日</span>
+        <input type="date" id="born" name="born-start"
+        value="2018-07-22"
+        min="2018-01-01" max="2018-12-31"><br>
+        <span>年　　齢</span>
+        <input type="text" name="old" size="3" maxlength="3" autocomplete="old"><span>歳</span><br>
+        <span>性　　別</span>
+      <input type="radio" name="gender" value="woman">女性
+      <input type="radio" name="gender" value="man">男性<br>
+        <span>電話番号</span>
+        <input type="tel" name="telNumber" size="17" pattern="\d{1,5}-\d{1,4}-\d{4,5}" placeholder="00-0000-0000" title="電話番号は、市外局番からハイフン（-）を入れて記入してください。" required><br>
+        <span>郵便番号</span>
+        <input type="text" name="zip" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','adress','adress');"><br>
+        <span>住　　所</span>
+        <input type="text" name="adress" size="60"><br><br>
+
+
+    &#9670;
+    <span>当てはまる症状にチェックをつけてください。</span><br>
+        <input type="checkbox" name="netu" value="netu">発熱
+        <input type="checkbox" name="zutu" value="zutu">頭痛
+        <input type="checkbox" name="bien" value="bien">鼻水
+        <input type="checkbox" name="nodo" value="nodo">喉の痛み
+        <input type="checkbox" name="seki" value="seki">咳
+        <input type="checkbox" name="tan" value="tan">痰
+        <input type="checkbox" name="hone" value="hone">関節の痛み<br>
+        <input type="checkbox" name="onaka" value="onaka">腹痛
+        <input type="checkbox" name="hakike" value="hakike">吐き気
+        <input type="checkbox" name="outo" value="outo">嘔吐
+        <input type="checkbox" name="geri" value="geri">下痢
+        <input type="checkbox" name="benpi" value="benpi">便秘
+        <input type="checkbox" name="syoku" value="syoku">食欲不振
+        <input type="checkbox" name="kosi" value="kosi">腰痛<br>
+        <input type="checkbox" name="iki" value="iki">息苦しい
+        <input type="checkbox" name="memai" value="memai">めまい
+        <input type="checkbox" name="hura" value="hura">ふらつき
+        <input type="checkbox" name="darui" value="darui">身体がだるい
+        <input type="checkbox" name="hoka" value="hoka">その他<input type="text" name="sick-name" autocomplete="sick-name"><br><br>
+
+    &#9670;
+    <span>現在、治療中の病気はありますか？</span><br>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">はい <input type="text" name="byoki" autocomplete="byoki" placeholder="病気名" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">いいえ</br></br>
+
+    &#9670;
+    <span>過去に大きな病気で治療や手術を受けられたことはありますか？</span>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">はい <input type="text" name="syujutu" autocomplete="syujutu" placeholder="手術・治療名" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">いいえ</br></br>
+
+    &#9670;
+    <span>現在飲んでいるお薬はありますか？</span>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">はい <input type="text" name="kusuri" autocomplete="kusuri" placeholder="お薬名" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">いいえ</br></br>
+
+    &#9670;
+    <span>喫煙について教えてください。</span>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">吸う <input type="text" name="tabako" autocomplete="tabako" placeholder="一日何本/何年間" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">吸わない</br>
+    　　 <p style="text-align:left"><input type="checkbox" name="ex" value="ex">禁煙<input type="text" name="tabako" autocomplete="tabako" placeholder="何年前から/当初は一日何本/何年間" size="60"></p><br>
+
+    &#9670;
+    <span>喫煙について教えてください。</span>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">飲む <input type="text" name="sake" autocomplete="sake" placeholder="週何日/量" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">飲まない</br></br>
+    　　
+    <p style="text-align:left">&#9670;
+        <span>お薬・食べ物のアレルギーはありますか？</span></p>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">はい <input type="text" name="arerugy" autocomplete="arerugy" placeholder="アレルギー名" size="60"></p><br>
+      <input type="checkbox" name="no" value="no">いいえ</br></br>
+
+    &#9670;
+    <span>［※女性の方へ］妊娠中、あるいは妊娠の可能性、授乳中ですか？</span>
+        <p style="text-align:left"><input type="checkbox" name="yes" value="yes">妊娠中 <br>
+        <input type="checkbox" name="ex" value="ex">妊娠の可能性</br>
+    <input type="checkbox" name="ex" value="ex">授乳中</p><br><br>
+
+    <p><input type="submit" value="確定"></p>
+    </div>
+    </div>
+    </form>
+</body>
+</html>
+{% endblock %}
