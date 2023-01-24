@@ -56,6 +56,11 @@ class InquiryView(generic.FormView):
         cc.drawString(188, 664, birdday[6])  # x, y, 文字列を指定
         cc.drawString(205, 664, birdday[7])  # x, y, 文字列を指定
 
+        old = form.cleaned_data['yearsOld']
+        cc.drawString(295, 664, birdday[0])  # x, y, 文字列を指定
+        cc.drawString(278, 664, birdday[0])  # x, y, 文字列を指定
+        cc.drawString(261, 664, birdday[0])  # x, y, 文字列を指定
+
 
         # 文字サイズで書き出し
         cc.setFont(fontname, 15)  # フォントとサイズを指定

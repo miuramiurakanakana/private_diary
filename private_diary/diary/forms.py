@@ -80,6 +80,8 @@ class InquiryForm(forms.Form):
         self.fields['tell_kanyuusyaban'].widget.attrs['placeholder'] = '加入者番号をここに入力してください。'
         self.fields['birth'].widget.attrs['class'] = 'form-control'
         self.fields['birth'].widget.attrs['placeholder'] = '誕生日をここに入力してください。'
+        self.fields['yearsOld'].widget.attrs['class'] = 'form-control'
+        self.fields['yearsOld'].widget.attrs['placeholder'] = '誕生日をここに入力してください。'
 
 
         self.fields['times'].widget.attrs['class'] = 'form-control'
