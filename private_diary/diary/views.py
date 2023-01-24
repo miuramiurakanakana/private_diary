@@ -150,12 +150,61 @@ class InquiryView(generic.FormView):
             cc.drawString(438, 438, '✓')
         else:
             cc.drawString(484, 438, '✓')
+        isKeiren = form.cleaned_data['keiren']
+        if isKeiren == "1":
+            cc.drawString(438, 418, '✓')
+        else:
+            cc.drawString(484, 418, '✓')
+        isAllegy2 = form.cleaned_data['allegy2']
+        if isAllegy2 == "1":
+            cc.drawString(438, 394, '✓')
+        else:
+            cc.drawString(484, 394, '✓')
+        isNotGood = form.cleaned_data['notGood']
+        if isNotGood == "1":
+            cc.drawString(438, 365, '✓')
+        else:
+            cc.drawString(484, 365, '✓')
+        isPregnancy = form.cleaned_data['pregnancy']
+        if isPregnancy == "1":
+            cc.drawString(438, 341, '✓')
+        else:
+            cc.drawString(484, 341, '✓')
+        isTwoWeek = form.cleaned_data['twoWeek']
+        if isTwoWeek == "1":
+            cc.drawString(438, 321, '✓')
+        else:
+            cc.drawString(484, 321, '✓')
+        isQuestion = form.cleaned_data['question']
+        if isQuestion == "1":
+            cc.drawString(438, 301, '✓')
+        else:
+            cc.drawString(484, 301, '✓')
+
+        isByomei = form.cleaned_data['byomei']
+        if isByomei == "1":
+            cc.drawString(81, 527, '✓')
+        elif isByomei == "2":
+            cc.drawString(129, 527, '✓')
+        elif isByomei == "3":
+            cc.drawString(173, 527, '✓')
+        elif isByomei == "4":
+            cc.drawString(219, 527, '✓')
+        elif isByomei == "5":
+            cc.drawString(279, 527, '✓')
+        elif isByomei == "6":
+            cc.drawString(380, 527, '✓')
+        elif isByomei == "7":
+            cc.drawString(81, 510, '✓')
+        else:
+            cc.drawString(188, 510, '✓')
+
 
 
         cc.setFont(fontname, 10)  # フォントのサイズを指定
         cc.drawString(300, 460, form.cleaned_data['sick'])  # x, y, 文字列を指定
         cc.drawString(240, 440, form.cleaned_data['badCondition'])  # x, y, 文字列を指定
-        cc.drawString(170, 390, form.cleaned_data['allegy'])  # x, y, 文字列を指定
+        cc.drawString(170, 390, form.cleaned_data['allegy1'])  # x, y, 文字列を指定
         cc.drawString(235, 603, form.cleaned_data['kind'])  # x, y, 文字列を指定
         cc.drawString(70, 361, form.cleaned_data['sessyu1'])  # x, y, 文字列を指定
         cc.drawString(280, 361, form.cleaned_data['symptoms'])  # x, y, 文字列を指定

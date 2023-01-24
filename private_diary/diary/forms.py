@@ -53,7 +53,7 @@ class InquiryForm(forms.Form):
 
     sick = forms.CharField(label='病名',max_length=30,required=False)
     badCondition = forms.CharField(label='具合悪い点',max_length=30,required=False)
-    allegy = forms.CharField(label='アレルギー',max_length=30,required=False)
+    allegy1 = forms.CharField(label='アレルギー',max_length=30,required=False)
     sessyu1 = forms.CharField(label='具合が悪くなった予防接種名',max_length=30,required=False)
     symptoms = forms.CharField(label='症状',max_length=30,required=False)
     sessyu2 = forms.CharField(label='前回受けた予防接種名', max_length=30,required=False)
@@ -88,10 +88,48 @@ class InquiryForm(forms.Form):
         ("1", "はい"),
         ("2", "いいえ"),
     )
-    guai = forms.ChoiceField(label='持病はありますか？', choices=choseGuai, required=False)
-
-
-
+    guai = forms.ChoiceField(label='体に具合悪いところはありますか？', choices=choseGuai, required=False)
+    choseKeiren = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    keiren = forms.ChoiceField(label='痙攣を起こしたことはありますか？', choices=choseKeiren, required=False)
+    choseAllegy2 = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    allegy2 = forms.ChoiceField(label='重度のアレルギーはありますか？', choices=choseAllegy2, required=False)
+    choseNotGood= (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    notGood = forms.ChoiceField(label='予防接種で具合が悪くなったことはありますか？', choices=choseNotGood, required=False)
+    chosePregnancy = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    pregnancy = forms.ChoiceField(label='予防接種で具合が悪くなったことはありますか？', choices=chosePregnancy, required=False)
+    choseTwoWeek = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    twoWeek = forms.ChoiceField(label='2週間以内に予防接種を打ちましたか？', choices=choseTwoWeek, required=False)
+    choseQuestion = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    question = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseQuestion, required=False)
+    choseByomei = (
+        ("1", "心臓病"),
+        ("2", "腎臓病"),
+        ("3", "肝臓病"),
+        ("4", "血液疾患"),
+        ("5", "血が止まりにくい病気"),
+        ("6", "免疫不全"),
+        ("7", "毛細血管漏出症候群"),
+        ("8", "その他"),
+    )
+    byomei = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseByomei, required=False)
     '''
     tell_shigaikyokuban =  forms.CharField(label='市外局番', max_length=5)
     month = forms.IntegerField(label='月',max_value=12,min_value=1)
@@ -161,8 +199,8 @@ class InquiryForm(forms.Form):
         self.fields['sick'].widget.attrs['placeholder'] = '病名をここに入力してください。'
         self.fields['badCondition'].widget.attrs['class'] = 'form-control'
         self.fields['badCondition'].widget.attrs['placeholder'] = '具合悪い点をここに入力してください。'
-        self.fields['allegy'].widget.attrs['class'] = 'form-control'
-        self.fields['allegy'].widget.attrs['placeholder'] = 'アレルギーをここに入力してください'
+        self.fields['allegy1'].widget.attrs['class'] = 'form-control'
+        self.fields['allegy1'].widget.attrs['placeholder'] = 'アレルギーをここに入力してください'
         self.fields['kind'].widget.attrs['class'] = 'form-control'
         self.fields['kind'].widget.attrs['placeholder'] = '接種したワクチンの種類をここに入力してください'
         self.fields['sessyu1'].widget.attrs['class'] = 'form-control'
@@ -186,7 +224,24 @@ class InquiryForm(forms.Form):
         self.fields['byoki'].widget.attrs['placeholder'] = '持病はありますか？　はいorいいえでお応えください'
         self.fields['guai'].widget.attrs['class'] = 'form-control'
         self.fields['guai'].widget.attrs['placeholder'] = '具合が悪い点はありますか？　はいorいいえでお応えください'
+        self.fields['keiren'].widget.attrs['class'] = 'form-control'
+        self.fields['keiren'].widget.attrs['placeholder'] = '痙攣を起こしたことはありますか？　はいorいいえでお応えください'
+        self.fields['allegy2'].widget.attrs['class'] = 'form-control'
+        self.fields['allegy2'].widget.attrs['placeholder'] = '重度のアレルギーを起こしたことはありますか？　はいorいいえでお応えください'
+        self.fields['notGood'].widget.attrs['class'] = 'form-control'
+        self.fields['notGood'].widget.attrs['placeholder'] = '予防接種で具合が悪くなったことはありますか？　はいorいいえでお応えください'
+        self.fields['pregnancy'].widget.attrs['class'] = 'form-control'
+        self.fields['pregnancy'].widget.attrs['placeholder'] = '妊娠又は授乳中ですか？　はいorいいえでお応えください'
+        self.fields['twoWeek'].widget.attrs['class'] = 'form-control'
+        self.fields['twoWeek'].widget.attrs['placeholder'] = '妊娠又は授乳中ですか？　はいorいいえでお応えください'
+        self.fields['question'].widget.attrs['class'] = 'form-control'
+        self.fields['question'].widget.attrs['placeholder'] = '今回の予防接種について質問はありますか？　はいorいいえでお応えください'
+        self.fields['byomei'].widget.attrs['class'] = 'form-control'
+        self.fields['byomei'].widget.attrs['placeholder'] = '何らかの病気にかかっていますか？　はいorいいえでお応えください'
         '''
+        
+        
+        
         self.fields['title'].widget.attrs['placeholder'] = 'タイトルをここに入力してください。'
         self.fields['tell_shigaikyokuban'].widget.attrs['class'] = 'form-control'
         self.fields['tell_shigaikyokuban'].widget.attrs['placeholder'] = '電話番号をここに入力してください。'
