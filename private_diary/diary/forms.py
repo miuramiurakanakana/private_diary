@@ -11,32 +11,87 @@ class InquiryForm(forms.Form):
     email = forms.EmailField(label='メールアドレス')
 
     '''
-    address1 = forms.CharField(label='都道府県', max_length=30)
-    address2 = forms.CharField(label='市町村', max_length=30)
-    address3 = forms.CharField(label='市町村以下の住所', max_length=30)
-    name = forms.CharField(label='お名前', max_length=30)
-    kana = forms.CharField(label='フリガナ', max_length=30)
-    tell_shigaikyokuban = forms.CharField(label='市外局番', max_length=5)
-    tell_shinaikyokuban = forms.CharField(label='市内局番', max_length=4)
-    tell_kanyuusyaban = forms.CharField(label='加入者番号', max_length=4)
-    birth = forms.CharField(label='誕生日', max_length=8)
-    yearsOld = forms.CharField(label='年齢', max_length=3)
+    address1 = forms.CharField(label='都道府県', max_length=30,required=False)
+    choseKubun1 = (
+        ("1","都"),
+        ("2","道"),
+        ("3","府"),
+        ("4","県"),
+    )
+    kubun1 = forms.ChoiceField(label='都道府県の区分', choices=choseKubun1, required=False)
+    address2 = forms.CharField(label='市町村', max_length=30,required=False)
+    choseKubun2 = (
+        ("1", "市"),
+        ("2", "区"),
+        ("3", "町"),
+        ("4", "村"),
+    )
+    kubun2 = forms.ChoiceField(label='市町村の区分', choices=choseKubun2, required=False)
+    address3 = forms.CharField(label='市町村以下の住所', max_length=30,required=False)
+    name = forms.CharField(label='お名前', max_length=30,required=False)
+    kana = forms.CharField(label='フリガナ', max_length=30,required=False)
+    tell_shigaikyokuban = forms.CharField(label='市外局番', max_length=5,required=False)
+    tell_shinaikyokuban = forms.CharField(label='市内局番', max_length=4,required=False)
+    tell_kanyuusyaban = forms.CharField(label='加入者番号', max_length=4,required=False)
+    birth = forms.CharField(label='誕生日', max_length=8,required=False)
+    yearsOld = forms.CharField(label='年齢', max_length=3,required=False)
+    bodyTemperature1 = forms.CharField(label='体温(度)', max_length=2,required=False)
+    bodyTemperature2 = forms.CharField(label='体温(分)', max_length=2,required=False)
+    choseGenders = (
+        ("1","男性"),
+        ("2","女性"),
+    )
+    genders = forms.ChoiceField(label='性別', choices=choseGenders,required=False)
 
 
 
-    times = forms.CharField(label='接種回数',max_length=2)
-    lastTime1 = forms.CharField(label='前回の摂取年',max_length=4)
-    lastTime2 = forms.CharField(label='前回の摂取月', max_length=2)
-    lastTime3 = forms.CharField(label='前回の摂取日', max_length=2)
-    kind = forms.CharField(label='前回のワクチンの種類', max_length=30)
+    times = forms.CharField(label='接種回数',max_length=2,required=False)
+    lastTime1 = forms.CharField(label='前回の摂取年',max_length=4,required=False)
+    lastTime2 = forms.CharField(label='前回の摂取月', max_length=2,required=False)
+    lastTime3 = forms.CharField(label='前回の摂取日', max_length=2,required=False)
+    kind = forms.CharField(label='前回のワクチンの種類', max_length=30,required=False)
 
-    sick = forms.CharField(label='病名',max_length=30)
-    badCondition = forms.CharField(label='具合悪い点',max_length=30)
-    allegy = forms.CharField(label='アレルギー',max_length=30)
-    sessyu1 = forms.CharField(label='具合が悪くなった予防接種名',max_length=30)
-    symptoms = forms.CharField(label='症状',max_length=30)
-    sessyu2 = forms.CharField(label='前回受けた予防接種名', max_length=30)
-    day = forms.CharField(label='前回受けた予防接種日', max_length=6)
+    sick = forms.CharField(label='病名',max_length=30,required=False)
+    badCondition = forms.CharField(label='具合悪い点',max_length=30,required=False)
+    allegy = forms.CharField(label='アレルギー',max_length=30,required=False)
+    sessyu1 = forms.CharField(label='具合が悪くなった予防接種名',max_length=30,required=False)
+    symptoms = forms.CharField(label='症状',max_length=30,required=False)
+    sessyu2 = forms.CharField(label='前回受けた予防接種名', max_length=30,required=False)
+    day = forms.CharField(label='前回受けた予防接種日', max_length=6,required=False)
+
+    choseSessyu3 = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    sessyu3 = forms.ChoiceField(label='ワクチン接種を以前接種したことはありますか？', choices=choseSessyu3, required=False)
+    choseJuumin = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    juumin = forms.ChoiceField(label='現住所と住民票の住所は同じですか？', choices=choseJuumin, required=False)
+    choseHannou = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    hannou = forms.ChoiceField(label='ワクチンの副反応について理解していますか？', choices=choseHannou, required=False)
+    choseTiryo = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    tiryo = forms.ChoiceField(label='現在治療を受けていますか？', choices=choseTiryo, required=False)
+    choseByoki = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    byoki = forms.ChoiceField(label='持病はありますか？', choices=choseByoki, required=False)
+    choseGuai = (
+        ("1", "はい"),
+        ("2", "いいえ"),
+    )
+    guai = forms.ChoiceField(label='持病はありますか？', choices=choseGuai, required=False)
+
+
+
     '''
     tell_shigaikyokuban =  forms.CharField(label='市外局番', max_length=5)
     month = forms.IntegerField(label='月',max_value=12,min_value=1)
@@ -64,8 +119,12 @@ class InquiryForm(forms.Form):
         '''
         self.fields['address1'].widget.attrs['class'] = 'form-control'
         self.fields['address1'].widget.attrs['placeholder'] = '都道府県名をここに入力してください。'
+        self.fields['kubun1'].widget.attrs['class'] = 'form-control'
+        self.fields['kubun1'].widget.attrs['placeholder'] = '都道府県の区分をここに入力してください。'
         self.fields['address2'].widget.attrs['class'] = 'form-control'
         self.fields['address2'].widget.attrs['placeholder'] = '市町村をここに入力してください。'
+        self.fields['kubun2'].widget.attrs['class'] = 'form-control'
+        self.fields['kubun2'].widget.attrs['placeholder'] = '市町村の区分をここに入力してください。'
         self.fields['address3'].widget.attrs['class'] = 'form-control'
         self.fields['address3'].widget.attrs['placeholder'] = '市町村以下の住所をここに入力してください。'
         self.fields['name'].widget.attrs['class'] = 'form-control'
@@ -81,8 +140,13 @@ class InquiryForm(forms.Form):
         self.fields['birth'].widget.attrs['class'] = 'form-control'
         self.fields['birth'].widget.attrs['placeholder'] = '誕生日をここに入力してください。'
         self.fields['yearsOld'].widget.attrs['class'] = 'form-control'
-        self.fields['yearsOld'].widget.attrs['placeholder'] = '誕生日をここに入力してください。'
-
+        self.fields['yearsOld'].widget.attrs['placeholder'] = '年齢をここに入力してください。'
+        self.fields['bodyTemperature1'].widget.attrs['class'] = 'form-control'
+        self.fields['bodyTemperature1'].widget.attrs['placeholder'] = '体温(度)をここに入力してください。'
+        self.fields['bodyTemperature2'].widget.attrs['class'] = 'form-control'
+        self.fields['bodyTemperature2'].widget.attrs['placeholder'] = '体温(分)をここに入力してください。'
+        self.fields['genders'].widget.attrs['class'] = 'form-control'
+        self.fields['genders'].widget.attrs['placeholder'] = '性別をここに入力してください。'
 
         self.fields['times'].widget.attrs['class'] = 'form-control'
         self.fields['times'].widget.attrs['placeholder'] = 'ワクチンの接種回数をここに入力してください。'
@@ -109,6 +173,19 @@ class InquiryForm(forms.Form):
         self.fields['sessyu2'].widget.attrs['placeholder'] = '前回受けた予防接種名をここに入力してください'
         self.fields['day'].widget.attrs['class'] = 'form-control'
         self.fields['day'].widget.attrs['placeholder'] = '前回受けた予防接種日をここに入力してください'
+
+        self.fields['sessyu3'].widget.attrs['class'] = 'form-control'
+        self.fields['sessyu3'].widget.attrs['placeholder'] = '以前予防接種を受けたことはありますか？　はいorいいえでお応えください'
+        self.fields['juumin'].widget.attrs['class'] = 'form-control'
+        self.fields['juumin'].widget.attrs['placeholder'] = '現住所と住民票の住所は同じですか？　はいorいいえでお応えください'
+        self.fields['hannou'].widget.attrs['class'] = 'form-control'
+        self.fields['hannou'].widget.attrs['placeholder'] = 'ワクチンの副反応について理解していますか？　はいorいいえでお応えください'
+        self.fields['tiryo'].widget.attrs['class'] = 'form-control'
+        self.fields['tiryo'].widget.attrs['placeholder'] = 'ワクチンの副反応について理解していますか？　はいorいいえでお応えください'
+        self.fields['byoki'].widget.attrs['class'] = 'form-control'
+        self.fields['byoki'].widget.attrs['placeholder'] = '持病はありますか？　はいorいいえでお応えください'
+        self.fields['guai'].widget.attrs['class'] = 'form-control'
+        self.fields['guai'].widget.attrs['placeholder'] = '具合が悪い点はありますか？　はいorいいえでお応えください'
         '''
         self.fields['title'].widget.attrs['placeholder'] = 'タイトルをここに入力してください。'
         self.fields['tell_shigaikyokuban'].widget.attrs['class'] = 'form-control'

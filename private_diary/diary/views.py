@@ -47,6 +47,7 @@ class InquiryView(generic.FormView):
         # 文字サイズで書き出し
         cc.setFont(fontname, 20)  # フォントとサイズを指定
         birdday = form.cleaned_data['birth']
+        birdday = "0000000000" # TODO 後で決しておく
         cc.drawString(64, 664, birdday[0])  # x, y, 文字列を指定
         cc.drawString(81, 664, birdday[1])  # x, y, 文字列を指定
         cc.drawString(98, 664, birdday[2])  # x, y, 文字列を指定
@@ -56,17 +57,28 @@ class InquiryView(generic.FormView):
         cc.drawString(188, 664, birdday[6])  # x, y, 文字列を指定
         cc.drawString(205, 664, birdday[7])  # x, y, 文字列を指定
 
+
         old = form.cleaned_data['yearsOld']
-        cc.drawString(295, 664, birdday[0])  # x, y, 文字列を指定
-        cc.drawString(278, 664, birdday[0])  # x, y, 文字列を指定
-        cc.drawString(261, 664, birdday[0])  # x, y, 文字列を指定
+        old = "020"  # TODO 後で決しておく
+        cc.drawString(261, 664, old[0])  # x, y, 文字列を指定
+        cc.drawString(278, 664, old[1])  # x, y, 文字列を指定
+        cc.drawString(295, 664, old[2])  # x, y, 文字列を指定
+
+        tmp1 = form.cleaned_data['bodyTemperature1']
+        tmp1 = "00"  # TODO 後で決しておく
+        cc.drawString(483, 664, tmp1[0])  # x, y, 文字列を指定
+        cc.drawString(500, 664, tmp1[1])  # x, y, 文字列を指定
+
+        tmp2 = form.cleaned_data['bodyTemperature2']
+        tmp2 = "0"  # TODO 後で決しておく
+        cc.drawString(540, 664, tmp2[0])  # x, y, 文字列を指定
 
 
         # 文字サイズで書き出し
         cc.setFont(fontname, 15)  # フォントとサイズを指定
 
         #cc.drawString(60, 755, '京都')  # x, y, 文字列を指定
-        cc.drawString(60, 755, form.cleaned_data['address1'] + "✓")  # x, y, 文字列を指定
+        cc.drawString(60, 755, form.cleaned_data['address1'])  # x, y, 文字列を指定
         cc.drawString(230, 755, form.cleaned_data['address2'])  # x, y, 文字列を指定
         cc.drawString(60, 728, form.cleaned_data['address3'])  # x, y, 文字列を指定
         cc.drawString(60, 692, form.cleaned_data['name'])  # x, y, 文字列を指定
@@ -74,6 +86,70 @@ class InquiryView(generic.FormView):
         cc.drawString(245, 615, form.cleaned_data['lastTime1'])  # x, y, 文字列を指定
         cc.drawString(316, 615, form.cleaned_data['lastTime2'])  # x, y, 文字列を指定
         cc.drawString(364, 615, form.cleaned_data['lastTime3'])  # x, y, 文字列を指定
+
+        # 丸を描画する
+        isKubun1 = form.cleaned_data['kubun1']
+        if isKubun1 == "1":
+            cc.circle(195, 767, 7, 1, 0)  #都
+        elif isKubun1 == "2":
+            cc.circle(212, 767, 7, 1, 0)  #道
+        elif isKubun1 == "3":
+            cc.circle(194, 755, 7, 1, 0)  #府
+        else:
+            cc.circle(212, 756, 7, 1, 0)  #県
+
+        isKubun2 = form.cleaned_data['kubun2']
+        if isKubun2 == "1":
+            cc.circle(347, 767, 7, 1, 0)  # 市
+        elif isKubun2 == "2":
+            cc.circle(365, 767, 7, 1, 0)  # 区
+        elif isKubun2 == "3":
+            cc.circle(347, 755, 7, 1, 0)  # 町
+        else:
+            cc.circle(365, 755, 7, 1, 0)  # 村
+
+
+        isMale = form.cleaned_data['genders']
+        if isMale=="1":
+            cc.drawString(334, 666, '✓')
+        else:
+            cc.drawString(540, 664, '✓')
+
+        isWakutin = form.cleaned_data['sessyu3']
+        if isWakutin=="1":
+            cc.drawString(438, 615, '✓')
+        else:
+            cc.drawString(484, 615, '✓')
+
+        isjumin = form.cleaned_data['juumin']
+        if isjumin == "1":
+            cc.drawString(438, 584, '✓')
+        else:
+            cc.drawString(484, 584, '✓')
+
+        isHannou = form.cleaned_data['hannou']
+        if isHannou == "1":
+            cc.drawString(438, 564, '✓')
+        else:
+            cc.drawString(484, 564, '✓')
+
+        isTiryo = form.cleaned_data['tiryo']
+        if isTiryo == "1":
+            cc.drawString(438, 521, '✓')
+        else:
+            cc.drawString(484, 521, '✓')
+
+        isByoki = form.cleaned_data['byoki']
+        if isByoki == "1":
+            cc.drawString(438, 458, '✓')
+        else:
+            cc.drawString(484, 458, '✓')
+
+        isGuai = form.cleaned_data['guai']
+        if isGuai == "1":
+            cc.drawString(438, 438, '✓')
+        else:
+            cc.drawString(484, 438, '✓')
 
 
         cc.setFont(fontname, 10)  # フォントのサイズを指定
@@ -95,8 +171,8 @@ class InquiryView(generic.FormView):
         cc.drawString(328, 692, form.cleaned_data['tell_kanyuusyaban'])  # x, y, 文字列を指定
 
 
-        # 丸を描画する
-        cc.circle(195, 755, 7, 1, 0)
+
+
 
         cc.showPage()
         cc.save()
