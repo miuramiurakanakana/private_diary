@@ -198,6 +198,18 @@ class InquiryView(generic.FormView):
             cc.drawString(81, 510, '✓')
         else:
             cc.drawString(188, 510, '✓')
+        isKusuri = form.cleaned_data['kusuri']
+        if isKusuri == "1":
+            cc.drawString(81, 493, '✓')
+        else:
+            cc.drawString(285, 493, '✓')
+        isKibou = form.cleaned_data['kibou']
+        if isKibou == "1":
+            cc.drawString(373, 183, '✓')
+        else:
+            cc.drawString(300, 493, '✓')
+
+
 
 
 

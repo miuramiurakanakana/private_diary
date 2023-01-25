@@ -6,11 +6,9 @@ from django.core.mail import EmailMessage
 class InquiryForm(forms.Form):
 
     '''
-
-
     email = forms.EmailField(label='メールアドレス')
-
     '''
+
     address1 = forms.CharField(label='都道府県', max_length=30,required=False)
     choseKubun1 = (
         ("1","都"),
@@ -38,6 +36,70 @@ class InquiryForm(forms.Form):
     bodyTemperature1 = forms.CharField(label='体温(度)', max_length=2,required=False)
     bodyTemperature2 = forms.CharField(label='体温(分)', max_length=2,required=False)
     choseGenders = (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        +++++++++++++
+
         ("1","男性"),
         ("2","女性"),
     )
@@ -130,6 +192,17 @@ class InquiryForm(forms.Form):
         ("8", "その他"),
     )
     byomei = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseByomei, required=False)
+    choseKusuri = (
+        ("1", "血をサラサラにする薬"),
+        ("2", "その他の薬"),
+    )
+    kusuri = forms.ChoiceField(label='何らかの投薬を受けていますか？', choices=choseKusuri, required=False)
+    chosekibou = (
+        ("1", "接種を希望します"),
+        ("2", "接種を希望しません"),
+    )
+    kibou = forms.ChoiceField(label='医師の説明を受け、接種を希望しますか？', choices=choseKibou, required=False)
+
     '''
     tell_shigaikyokuban =  forms.CharField(label='市外局番', max_length=5)
     month = forms.IntegerField(label='月',max_value=12,min_value=1)
@@ -238,6 +311,8 @@ class InquiryForm(forms.Form):
         self.fields['question'].widget.attrs['placeholder'] = '今回の予防接種について質問はありますか？　はいorいいえでお応えください'
         self.fields['byomei'].widget.attrs['class'] = 'form-control'
         self.fields['byomei'].widget.attrs['placeholder'] = '何らかの病気にかかっていますか？　はいorいいえでお応えください'
+        self.fields['kusuri'].widget.attrs['class'] = 'form-control'
+        self.fields['kusuri'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
         '''
         
         
