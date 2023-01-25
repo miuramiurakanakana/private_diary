@@ -207,7 +207,7 @@ class InquiryView(generic.FormView):
         if isKibou == "1":
             cc.drawString(373, 183, '✓')
         else:
-            cc.drawString(300, 493, '✓')
+            cc.drawString(460, 493, '✓')
 
 
 

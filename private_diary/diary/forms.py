@@ -36,70 +36,6 @@ class InquiryForm(forms.Form):
     bodyTemperature1 = forms.CharField(label='体温(度)', max_length=2,required=False)
     bodyTemperature2 = forms.CharField(label='体温(分)', max_length=2,required=False)
     choseGenders = (
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        +++++++++++++
-
         ("1","男性"),
         ("2","女性"),
     )
@@ -197,7 +133,7 @@ class InquiryForm(forms.Form):
         ("2", "その他の薬"),
     )
     kusuri = forms.ChoiceField(label='何らかの投薬を受けていますか？', choices=choseKusuri, required=False)
-    chosekibou = (
+    choseKibou = (
         ("1", "接種を希望します"),
         ("2", "接種を希望しません"),
     )
@@ -313,6 +249,8 @@ class InquiryForm(forms.Form):
         self.fields['byomei'].widget.attrs['placeholder'] = '何らかの病気にかかっていますか？　はいorいいえでお応えください'
         self.fields['kusuri'].widget.attrs['class'] = 'form-control'
         self.fields['kusuri'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
+        self.fields['kibou'].widget.attrs['class'] = 'form-control'
+        self.fields['kibou'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
         '''
         
         
