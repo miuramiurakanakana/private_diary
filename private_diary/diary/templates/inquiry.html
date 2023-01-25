@@ -12,7 +12,7 @@
             {{ form.non_field_errors }}
 
             {% for field in form %}
-            <div class="mb-4 col-8">
+            <div class="mb-4 col-8" id="{{ field.id_for_label }}_div">
                 <label for="{{ field.id_for_label }}" class="form-label">
                     <strong>{{ field.label_tag }}</strong>
                 </label>
@@ -22,6 +22,20 @@
             {% endfor %}
         <button class="btn btn-primary" type="submit">送信</button>
         </form>
+        <script>
+            function butotnClick() {
+
+                if (checkButton.checked) {
+                    setumei.style.display ="block";
+                } else {
+                    setumei.style.display ="none";
+                }
+            }
+
+            const setumei = document.getElementById("id_kusuri_div");
+            let checkButton = document.getElementById('byouki-id');
+            checkButton.addEventListener('click', butotnClick);
+        </script>
     </div>
 </div>
 {% endblock %}

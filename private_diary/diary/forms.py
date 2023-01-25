@@ -116,7 +116,7 @@ class InquiryForm(forms.Form):
         ("1", "はい"),
         ("2", "いいえ"),
     )
-    question = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseQuestion, required=False)
+    question = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseQuestion,widget=forms.RadioSelect(), required=False)
     choseByomei = (
         ("1", "心臓病"),
         ("2", "腎臓病"),
@@ -127,10 +127,12 @@ class InquiryForm(forms.Form):
         ("7", "毛細血管漏出症候群"),
         ("8", "その他"),
     )
-    byomei = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseByomei, required=False)
+    #byomei = forms.MultipleChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseByomei, required=False)
+    byomei = forms.BooleanField(label='今日の予防接種について何か質問はありますか？')
     choseKusuri = (
         ("1", "血をサラサラにする薬"),
         ("2", "その他の薬"),
+        ("3", "大好きだよ"),
     )
     kusuri = forms.ChoiceField(label='何らかの投薬を受けていますか？', choices=choseKusuri, required=False)
     choseKibou = (
@@ -246,6 +248,7 @@ class InquiryForm(forms.Form):
         self.fields['question'].widget.attrs['class'] = 'form-control'
         self.fields['question'].widget.attrs['placeholder'] = '今回の予防接種について質問はありますか？　はいorいいえでお応えください'
         self.fields['byomei'].widget.attrs['class'] = 'form-control'
+        self.fields['byomei'].widget.attrs['id'] = 'byouki-id'
         self.fields['byomei'].widget.attrs['placeholder'] = '何らかの病気にかかっていますか？　はいorいいえでお応えください'
         self.fields['kusuri'].widget.attrs['class'] = 'form-control'
         self.fields['kusuri'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
