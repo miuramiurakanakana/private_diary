@@ -87,6 +87,7 @@ class InquiryView(generic.FormView):
         cc.drawString(316, 615, form.cleaned_data['lastTime2'])  # x, y, 文字列を指定
         cc.drawString(364, 615, form.cleaned_data['lastTime3'])  # x, y, 文字列を指定
 
+
         # 丸を描画する
         isKubun1 = form.cleaned_data['kubun1']
         if isKubun1 == "1":
@@ -194,22 +195,29 @@ class InquiryView(generic.FormView):
             cc.drawString(279, 527, '✓')
         elif isByomei == "6":
             cc.drawString(380, 527, '✓')
-        elif isByomei == "7":
-            cc.drawString(81, 510, '✓')
         else:
-            cc.drawString(188, 510, '✓')
+            cc.drawString(81, 510, '✓')
+
+        isSarasara = form.cleaned_data['sarasara']
+        if isSarasara == "1":
+            cc.drawString(81, 493, '✓')
+        else:
+            none
+
         isKusuri = form.cleaned_data['kusuri']
         if isKusuri == "1":
             cc.drawString(81, 493, '✓')
         else:
             cc.drawString(285, 493, '✓')
+
         isKibou = form.cleaned_data['kibou']
         if isKibou == "1":
             cc.drawString(373, 183, '✓')
         else:
             cc.drawString(460, 493, '✓')
 
-
+        #isSonota = form.cleaned_data['sonota']
+        #cc.drawString(188, 510, '✓')
 
 
 
@@ -222,6 +230,7 @@ class InquiryView(generic.FormView):
         cc.drawString(280, 361, form.cleaned_data['symptoms'])  # x, y, 文字列を指定
         cc.drawString(225, 324, form.cleaned_data['sessyu2'])  # x, y, 文字列を指定
         cc.drawString(370, 324, form.cleaned_data['day'])  # x, y, 文字列を指定
+        cc.drawString(238, 512, form.cleaned_data['byomei4'])  # x, y, 文字列を指定
 
         cc.setFont(fontname, 7)  # フォントのサイズを指定
         # cc.drawString(60, 755, '京都')

@@ -57,6 +57,7 @@ class InquiryForm(forms.Form):
     sessyu2 = forms.CharField(label='前回受けた予防接種名', max_length=30,required=False)
     day = forms.CharField(label='前回受けた予防接種日', max_length=6,required=False)
 
+
     choseSessyu3 = (
         ("1", "はい"),
         ("2", "いいえ"),
@@ -117,6 +118,7 @@ class InquiryForm(forms.Form):
         ("2", "いいえ"),
     )
     question = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseQuestion,widget=forms.RadioSelect(), required=False)
+    byomei1 = forms.BooleanField(label='何らかの持病をもっていますか？',)
     choseByomei = (
         ("1", "心臓病"),
         ("2", "腎臓病"),
@@ -125,16 +127,24 @@ class InquiryForm(forms.Form):
         ("5", "血が止まりにくい病気"),
         ("6", "免疫不全"),
         ("7", "毛細血管漏出症候群"),
-        ("8", "その他"),
     )
-    #byomei = forms.MultipleChoiceField(label='今日の予防接種について何か質問はありますか？', choices=choseByomei, required=False)
-    byomei = forms.BooleanField(label='今日の予防接種について何か質問はありますか？')
+    byomei = forms.MultipleChoiceField(label='病名を選択してください？', choices=choseByomei, required=False)
+    byomei2 = forms.BooleanField(label='上記以外の持病をもっていますか？', )
+    sonota1 = forms.CharField(label='その他の病気', max_length=30, required=False)
+
+    kusuri = forms.BooleanField(label='何らかの投薬を受けていますか？')
+
     choseKusuri = (
         ("1", "血をサラサラにする薬"),
         ("2", "その他の薬"),
-        ("3", "大好きだよ"),
     )
     kusuri = forms.ChoiceField(label='何らかの投薬を受けていますか？', choices=choseKusuri, required=False)
+
+    choseSarasara = (
+        ("1", "はい"),
+    )
+    sarasara = forms.BooleanField(label='血液をサラサラにする薬を処方されていますか？')
+
     choseKibou = (
         ("1", "接種を希望します"),
         ("2", "接種を希望しません"),
@@ -247,17 +257,25 @@ class InquiryForm(forms.Form):
         self.fields['twoWeek'].widget.attrs['placeholder'] = '妊娠又は授乳中ですか？　はいorいいえでお応えください'
         self.fields['question'].widget.attrs['class'] = 'form-control'
         self.fields['question'].widget.attrs['placeholder'] = '今回の予防接種について質問はありますか？　はいorいいえでお応えください'
+        self.fields['byomei1'].widget.attrs['id'] = 'byomei1-id'
         self.fields['byomei'].widget.attrs['class'] = 'form-control'
-        self.fields['byomei'].widget.attrs['id'] = 'byouki-id'
-        self.fields['byomei'].widget.attrs['placeholder'] = '何らかの病気にかかっていますか？　はいorいいえでお応えください'
+        self.fields['byomei'].widget.attrs['placeholder'] = '何らかの持病をお持ちですか？　該当するものを選択してください'
+        self.fields['byomei2'].widget.attrs['id'] = 'byomei2-id'
+        self.fields['sonota1'].widget.attrs['class'] = 'form-control'
+        self.fields['sonota1'].widget.attrs['placeholder'] = '上記以外の病気を入力してください'
+
         self.fields['kusuri'].widget.attrs['class'] = 'form-control'
-        self.fields['kusuri'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
+        self.fields['kusuri'].widget.attrs['placeholder'] = '何らかの投薬を受けていますか？　はいorいいえでお応えください'
+
         self.fields['kibou'].widget.attrs['class'] = 'form-control'
         self.fields['kibou'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
+
+        self.fields['sarasara'].widget.attrs['class'] = 'form-control'
+        self.fields['sarasara'].widget.attrs['placeholder'] = '血液をサラサラにする薬を処方されていますか？　はいの場合は✓してください'
+
+
+
         '''
-        
-        
-        
         self.fields['title'].widget.attrs['placeholder'] = 'タイトルをここに入力してください。'
         self.fields['tell_shigaikyokuban'].widget.attrs['class'] = 'form-control'
         self.fields['tell_shigaikyokuban'].widget.attrs['placeholder'] = '電話番号をここに入力してください。'
@@ -267,19 +285,17 @@ class InquiryForm(forms.Form):
         self.fields['day'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
         self.fields['genders'].widget.attrs['class'] = 'form-control'
         self.fields['genders'].widget.attrs['placeholder'] = '性別をここに入力してください。'
-        #self.fields['degree'].widget.attrs['class'] = 'form-control'
-        #self.fields['degree'].widget.attrs['placeholder'] = '体温をここに入力してください。'
-
-
+        self.fields['degree'].widget.attrs['class'] = 'form-control'
+        self.fields['degree'].widget.attrs['placeholder'] = '体温をここに入力してください。'
         self.fields['message'].widget.attrs['class'] = 'form-control'
         self.fields['message'].widget.attrs['placeholder'] = 'メッセージをここに入力してください。'
-        '''
+         '''
 
 
 
 
         def send_email(self):
-            '''
+
             name = self.cleaned_data['name']
             email = self.cleaned_data['email']
             address1 = self.cleaned_data['address1']
@@ -291,7 +307,7 @@ class InquiryForm(forms.Form):
             day = self.cleaned_data['day']
             genders = self.cleaned_data['genders']
             degree = self.cleaned_data['degree']
-
+            '''
             title = self.cleaned_data['title']
             message = self.cleaned_data['message']
             subject = 'お問い合わせ{}'.format(title)
@@ -303,9 +319,9 @@ class InquiryForm(forms.Form):
             cc_list = [
                 email
             ]
-
+           '''
             message = EmailMessage(subject=subject,body=message,from_email=from_email,to=to_list,cc=cc_list)
             message.send()
-            '''
+
 
 

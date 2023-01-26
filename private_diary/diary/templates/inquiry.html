@@ -27,15 +27,33 @@
 
                 if (checkButton.checked) {
                     setumei.style.display ="block";
+
                 } else {
                     setumei.style.display ="none";
                 }
             }
 
-            const setumei = document.getElementById("id_kusuri_div");
-            let checkButton = document.getElementById('byouki-id');
+            const setumei = document.getElementById("id_byomei_div");
+            setumei.style.display ="none";
+            let checkButton = document.getElementById('byomei1-id');
             checkButton.addEventListener('click', butotnClick);
         </script>
+        <script>
+            function butotnClick2() {
+                if (checkButton1.checked) {
+                    setumei1.style.display ="block";
+
+                } else {
+                    setumei1.style.display ="none";
+                }
+            }
+
+            const setumei1 = document.getElementById("id_sonota1_div");
+            setumei1.style.display ="none";
+            let checkButton1 = document.getElementById('byomei2-id');
+            checkButton1.addEventListener('click', butotnClick2);
+        </script>
+
     </div>
 </div>
 {% endblock %}
