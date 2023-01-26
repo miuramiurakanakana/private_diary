@@ -32,7 +32,7 @@ class InquiryView(generic.FormView):
         pdfmetrics.registerFont(TTFont(fontname, './ipaexg.ttf'))
 
         monshin_template = './monshin_template.pdf'
-        output_path = './monshin_output.pdf'
+        output_path = './diary/static/assets/monshin_output.pdf'
 
         # 元のPDFを読み込み
         pages = PdfReader(monshin_template, decompress=False).pages
