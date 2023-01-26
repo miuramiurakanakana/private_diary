@@ -46,30 +46,30 @@ class InquiryView(generic.FormView):
 
         # 文字サイズで書き出し
         cc.setFont(fontname, 20)  # フォントとサイズを指定
-        birdday = form.cleaned_data['birth']
-        birdday = "0000000000" # TODO 後で決しておく
-        cc.drawString(64, 664, birdday[0])  # x, y, 文字列を指定
-        cc.drawString(81, 664, birdday[1])  # x, y, 文字列を指定
-        cc.drawString(98, 664, birdday[2])  # x, y, 文字列を指定
-        cc.drawString(115, 664, birdday[3])  # x, y, 文字列を指定
-        cc.drawString(143, 664, birdday[4])  # x, y, 文字列を指定
-        cc.drawString(160, 664, birdday[5])  # x, y, 文字列を指定
-        cc.drawString(188, 664, birdday[6])  # x, y, 文字列を指定
-        cc.drawString(205, 664, birdday[7])  # x, y, 文字列を指定
+        bird前回受けた予防接種日 = form.cleaned_data['誕生日']
+        bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
+        cc.drawString(64, 664, bird前回受けた予防接種日[0])  # x, y, 文字列を指定
+        cc.drawString(81, 664, bird前回受けた予防接種日[1])  # x, y, 文字列を指定
+        cc.drawString(98, 664, bird前回受けた予防接種日[2])  # x, y, 文字列を指定
+        cc.drawString(115, 664, bird前回受けた予防接種日[3])  # x, y, 文字列を指定
+        cc.drawString(143, 664, bird前回受けた予防接種日[4])  # x, y, 文字列を指定
+        cc.drawString(160, 664, bird前回受けた予防接種日[5])  # x, y, 文字列を指定
+        cc.drawString(188, 664, bird前回受けた予防接種日[6])  # x, y, 文字列を指定
+        cc.drawString(205, 664, bird前回受けた予防接種日[7])  # x, y, 文字列を指定
 
 
-        old = form.cleaned_data['yearsOld']
+        old = form.cleaned_data['年齢']
         old = "020"  # TODO 後で決しておく
         cc.drawString(261, 664, old[0])  # x, y, 文字列を指定
         cc.drawString(278, 664, old[1])  # x, y, 文字列を指定
         cc.drawString(295, 664, old[2])  # x, y, 文字列を指定
 
-        tmp1 = form.cleaned_data['bodyTemperature1']
+        tmp1 = form.cleaned_data['体温_度']
         tmp1 = "00"  # TODO 後で決しておく
         cc.drawString(483, 664, tmp1[0])  # x, y, 文字列を指定
         cc.drawString(500, 664, tmp1[1])  # x, y, 文字列を指定
 
-        tmp2 = form.cleaned_data['bodyTemperature2']
+        tmp2 = form.cleaned_data['体温_分']
         tmp2 = "0"  # TODO 後で決しておく
         cc.drawString(540, 664, tmp2[0])  # x, y, 文字列を指定
 
@@ -78,140 +78,138 @@ class InquiryView(generic.FormView):
         cc.setFont(fontname, 15)  # フォントとサイズを指定
 
         #cc.drawString(60, 755, '京都')  # x, y, 文字列を指定
-        cc.drawString(60, 755, form.cleaned_data['address1'])  # x, y, 文字列を指定
-        cc.drawString(230, 755, form.cleaned_data['address2'])  # x, y, 文字列を指定
-        cc.drawString(60, 728, form.cleaned_data['address3'])  # x, y, 文字列を指定
-        cc.drawString(60, 692, form.cleaned_data['name'])  # x, y, 文字列を指定
-        cc.drawString(105, 615, form.cleaned_data['times'])  # x, y, 文字列を指定
-        cc.drawString(245, 615, form.cleaned_data['lastTime1'])  # x, y, 文字列を指定
-        cc.drawString(316, 615, form.cleaned_data['lastTime2'])  # x, y, 文字列を指定
-        cc.drawString(364, 615, form.cleaned_data['lastTime3'])  # x, y, 文字列を指定
+        cc.drawString(60, 755, form.cleaned_data['都道府県'])  # x, y, 文字列を指定
+        cc.drawString(230, 755, form.cleaned_data['市町村'])  # x, y, 文字列を指定
+        cc.drawString(60, 728, form.cleaned_data['市町村以下の住所'])  # x, y, 文字列を指定
+        cc.drawString(60, 692, form.cleaned_data['お名前'])  # x, y, 文字列を指定
+        cc.drawString(105, 615, form.cleaned_data['接種回数'])  # x, y, 文字列を指定
+        cc.drawString(245, 615, form.cleaned_data['前回の摂取年'])  # x, y, 文字列を指定
+        cc.drawString(316, 615, form.cleaned_data['前回の摂取月'])  # x, y, 文字列を指定
+        cc.drawString(364, 615, form.cleaned_data['前回の摂取日'])  # x, y, 文字列を指定
 
 
         # 丸を描画する
-        isKubun1 = form.cleaned_data['kubun1']
-        if isKubun1 == "1":
+        is都道府県の区分 = form.cleaned_data['都道府県の区分']
+        if is都道府県の区分 == "1":
             cc.circle(195, 767, 7, 1, 0)  #都
-        elif isKubun1 == "2":
+        elif is都道府県の区分 == "2":
             cc.circle(212, 767, 7, 1, 0)  #道
-        elif isKubun1 == "3":
+        elif is都道府県の区分 == "3":
             cc.circle(194, 755, 7, 1, 0)  #府
         else:
             cc.circle(212, 756, 7, 1, 0)  #県
 
-        isKubun2 = form.cleaned_data['kubun2']
-        if isKubun2 == "1":
+        is市町村の区分 = form.cleaned_data['市町村の区分']
+        if is市町村の区分 == "1":
             cc.circle(347, 767, 7, 1, 0)  # 市
-        elif isKubun2 == "2":
+        elif is市町村の区分 == "2":
             cc.circle(365, 767, 7, 1, 0)  # 区
-        elif isKubun2 == "3":
+        elif is市町村の区分 == "3":
             cc.circle(347, 755, 7, 1, 0)  # 町
         else:
             cc.circle(365, 755, 7, 1, 0)  # 村
 
 
-        isMale = form.cleaned_data['genders']
+        isMale = form.cleaned_data['性別']
         if isMale=="1":
             cc.drawString(334, 666, '✓')
         else:
             cc.drawString(540, 664, '✓')
 
-        isWakutin = form.cleaned_data['sessyu3']
+        isWakutin = form.cleaned_data['ワクチン接種を以前接種したことはありますか']
         if isWakutin=="1":
             cc.drawString(438, 615, '✓')
         else:
             cc.drawString(484, 615, '✓')
 
-        isjumin = form.cleaned_data['juumin']
+        isjumin = form.cleaned_data['現住所と住民票の住所は同じですか']
         if isjumin == "1":
             cc.drawString(438, 584, '✓')
         else:
             cc.drawString(484, 584, '✓')
 
-        isHannou = form.cleaned_data['hannou']
-        if isHannou == "1":
+        isワクチンの副反応について理解していますか = form.cleaned_data['ワクチンの副反応について理解していますか']
+        if isワクチンの副反応について理解していますか == "1":
             cc.drawString(438, 564, '✓')
         else:
             cc.drawString(484, 564, '✓')
 
-        isTiryo = form.cleaned_data['tiryo']
-        if isTiryo == "1":
+        is現在治療を受けていますか = form.cleaned_data['現在治療を受けていますか']
+        if is現在治療を受けていますか == "1":
             cc.drawString(438, 521, '✓')
         else:
             cc.drawString(484, 521, '✓')
 
-        isByoki = form.cleaned_data['byoki']
-        if isByoki == "1":
+        is持病はありますか = form.cleaned_data['持病はありますか']
+        if is持病はありますか == "1":
             cc.drawString(438, 458, '✓')
         else:
             cc.drawString(484, 458, '✓')
 
-        isGuai = form.cleaned_data['guai']
-        if isGuai == "1":
+        is体に具合悪いところはありますか = form.cleaned_data['体に具合悪いところはありますか']
+        if is体に具合悪いところはありますか == "1":
             cc.drawString(438, 438, '✓')
         else:
             cc.drawString(484, 438, '✓')
-        isKeiren = form.cleaned_data['keiren']
-        if isKeiren == "1":
+        is痙攣を起こしたことはありますか = form.cleaned_data['痙攣を起こしたことはありますか']
+        if is痙攣を起こしたことはありますか == "1":
             cc.drawString(438, 418, '✓')
         else:
             cc.drawString(484, 418, '✓')
-        isAllegy2 = form.cleaned_data['allegy2']
-        if isAllegy2 == "1":
+        is重度のアレルギーはありますか = form.cleaned_data['重度のアレルギーはありますか']
+        if is重度のアレルギーはありますか == "1":
             cc.drawString(438, 394, '✓')
         else:
             cc.drawString(484, 394, '✓')
-        isNotGood = form.cleaned_data['notGood']
-        if isNotGood == "1":
+        is予防接種で具合が悪くなったことはありますか = form.cleaned_data['予防接種で具合が悪くなったことはありますか']
+        if is予防接種で具合が悪くなったことはありますか == "1":
             cc.drawString(438, 365, '✓')
         else:
             cc.drawString(484, 365, '✓')
-        isPregnancy = form.cleaned_data['pregnancy']
-        if isPregnancy == "1":
+        is現在妊娠していますか = form.cleaned_data['現在妊娠していますか']
+        if is現在妊娠していますか == "1":
             cc.drawString(438, 341, '✓')
         else:
             cc.drawString(484, 341, '✓')
-        isTwoWeek = form.cleaned_data['twoWeek']
-        if isTwoWeek == "1":
+        is_2週間以内に予防接種を打ちましたか = form.cleaned_data['_2週間以内に予防接種を打ちましたか']
+        if is_2週間以内に予防接種を打ちましたか == "1":
             cc.drawString(438, 321, '✓')
         else:
             cc.drawString(484, 321, '✓')
-        isQuestion = form.cleaned_data['question']
-        if isQuestion == "1":
+        is_今日の予防接種について何か質問はありますか = form.cleaned_data['_今日の予防接種について何か質問はありますか']
+        if is_今日の予防接種について何か質問はありますか == "1":
             cc.drawString(438, 301, '✓')
         else:
             cc.drawString(484, 301, '✓')
 
-        isByomei = form.cleaned_data['byomei']
-        if isByomei == "1":
+        is病名を選択してください = form.cleaned_data['病名を選択してください']
+        if is病名を選択してください == "1":
             cc.drawString(81, 527, '✓')
-        elif isByomei == "2":
+        elif is病名を選択してください == "2":
             cc.drawString(129, 527, '✓')
-        elif isByomei == "3":
+        elif is病名を選択してください == "3":
             cc.drawString(173, 527, '✓')
-        elif isByomei == "4":
+        elif is病名を選択してください == "4":
             cc.drawString(219, 527, '✓')
-        elif isByomei == "5":
+        elif is病名を選択してください == "5":
             cc.drawString(279, 527, '✓')
-        elif isByomei == "6":
+        elif is病名を選択してください == "6":
             cc.drawString(380, 527, '✓')
         else:
             cc.drawString(81, 510, '✓')
 
-        isSarasara = form.cleaned_data['sarasara']
-        if isSarasara == "1":
+        isサラサラにする薬 = form.cleaned_data['サラサラにする薬']
+        if isサラサラにする薬 == "1":
             cc.drawString(81, 493, '✓')
-        else:
-            none
 
-        isKusuri = form.cleaned_data['kusuri']
-        if isKusuri == "1":
+        is何らかの投薬を受けていますか = form.cleaned_data['何らかの投薬を受けていますか']
+        if is何らかの投薬を受けていますか == "1":
             cc.drawString(81, 493, '✓')
         else:
             cc.drawString(285, 493, '✓')
 
-        isKibou = form.cleaned_data['kibou']
-        if isKibou == "1":
+        is接種を希望しますか = form.cleaned_data['接種を希望しますか']
+        if is接種を希望しますか == "1":
             cc.drawString(373, 183, '✓')
         else:
             cc.drawString(460, 493, '✓')
@@ -222,23 +220,24 @@ class InquiryView(generic.FormView):
 
 
         cc.setFont(fontname, 10)  # フォントのサイズを指定
-        cc.drawString(300, 460, form.cleaned_data['sick'])  # x, y, 文字列を指定
-        cc.drawString(240, 440, form.cleaned_data['badCondition'])  # x, y, 文字列を指定
-        cc.drawString(170, 390, form.cleaned_data['allegy1'])  # x, y, 文字列を指定
-        cc.drawString(235, 603, form.cleaned_data['kind'])  # x, y, 文字列を指定
-        cc.drawString(70, 361, form.cleaned_data['sessyu1'])  # x, y, 文字列を指定
-        cc.drawString(280, 361, form.cleaned_data['symptoms'])  # x, y, 文字列を指定
-        cc.drawString(225, 324, form.cleaned_data['sessyu2'])  # x, y, 文字列を指定
-        cc.drawString(370, 324, form.cleaned_data['day'])  # x, y, 文字列を指定
-        cc.drawString(238, 512, form.cleaned_data['byomei4'])  # x, y, 文字列を指定
+        cc.drawString(300, 460, form.cleaned_data['病名'])  # x, y, 文字列を指定
+        cc.drawString(240, 440, form.cleaned_data['具合悪い点'])  # x, y, 文字列を指定
+        cc.drawString(170, 390, form.cleaned_data['アレルギー'])  # x, y, 文字列を指定
+        cc.drawString(235, 603, form.cleaned_data['前回のワクチンの種類'])  # x, y, 文字列を指定
+        cc.drawString(70, 361, form.cleaned_data['具合が悪くなった予防接種名'])  # x, y, 文字列を指定
+        cc.drawString(280, 361, form.cleaned_data['症状'])  # x, y, 文字列を指定
+        cc.drawString(225, 324, form.cleaned_data['前回受けた予防接種名'])  # x, y, 文字列を指定
+        cc.drawString(370, 324, form.cleaned_data['前回受けた予防接種日'])  # x, y, 文字列を指定
+        cc.drawString(190, 495, form.cleaned_data['処方されている薬名を記入してください'])  # x, y, 文字列を指定
+        #cc.drawString(238, 512, form.cleaned_data['病名を選択してください4']) これはその他にしたやつ  # x, y, 文字列を指定
 
         cc.setFont(fontname, 7)  # フォントのサイズを指定
         # cc.drawString(60, 755, '京都')
         # x, y, 文字列を指定
-        cc.drawString(60, 712, form.cleaned_data['kana'])  # x, y, 文字列を指定
-        cc.drawString(280, 708, form.cleaned_data['tell_shigaikyokuban'])   # x, y, 文字列を指定
-        cc.drawString(280, 692, form.cleaned_data['tell_shinaikyokuban'])   # x, y, 文字列を指定
-        cc.drawString(328, 692, form.cleaned_data['tell_kanyuusyaban'])  # x, y, 文字列を指定
+        cc.drawString(60, 712, form.cleaned_data['伽奈'])  # x, y, 文字列を指定
+        cc.drawString(280, 708, form.cleaned_data['市外局番'])   # x, y, 文字列を指定
+        cc.drawString(280, 692, form.cleaned_data['市内局番'])   # x, y, 文字列を指定
+        cc.drawString(328, 692, form.cleaned_data['加入者番号'])  # x, y, 文字列を指定
 
 
 
@@ -246,5 +245,8 @@ class InquiryView(generic.FormView):
 
         cc.showPage()
         cc.save()
+
+        #djangoの何らかの機能を使って、下のURLを新しいタブで開くこと
+        # http://127.0.0.1:8000/static/assets/monshin_output.pdf
 
         return super().form_valid(form)
