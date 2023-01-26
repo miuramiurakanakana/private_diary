@@ -272,7 +272,8 @@ class InquiryForm(forms.Form):
         self.fields['接種を希望しますか'].widget.attrs['class'] = 'form-control'
         self.fields['接種を希望しますか'].widget.attrs['placeholder'] = '医師の説明を受けて接種を希望しますか？　はいorいいえでお応えください'
 
-        self.fields['サラサラにする薬'].widget.attrs['class'] = 'サラサラにする薬-id'
+        self.fields['サラサラにする薬'].widget.attrs['class'] = 'form-control'
+        self.fields['サラサラにする薬'].widget.attrs['id'] = 'サラサラにする薬-id'
         self.fields['サラサラにする薬'].widget.attrs['placeholder'] = '血液をサラサラにする薬を処方されていますか？　はいの場合は✓してください'
 
         self.fields['処方されている薬名を記入してください'].widget.attrs['class'] = 'form-control'
