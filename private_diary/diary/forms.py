@@ -42,7 +42,6 @@ class InquiryForm(forms.Form):
     性別 = forms.ChoiceField(label='性別', choices=chose性別,required=False)
 
 
-
     接種回数 = forms.CharField(label='接種回数',max_length=2,required=False)
     前回の摂取年 = forms.CharField(label='前回の摂取年',max_length=4,required=False)
     前回の摂取月 = forms.CharField(label='前回の摂取月', max_length=2,required=False)
@@ -118,7 +117,7 @@ class InquiryForm(forms.Form):
         ("2", "いいえ"),
     )
     _今日の予防接種について何か質問はありますか = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=chose_今日の予防接種について何か質問はありますか,widget=forms.RadioSelect(), required=False)
-    何らかの持病をもっていますか = forms.BooleanField(label='何らかの持病をもっていますか？',)
+    何らかの持病をもっていますか = forms.BooleanField(label='何らかの持病をもっていますか？', required=False)
     chose病名を選択してください = (
         ("1", "心臓病"),
         ("2", "腎臓病"),
@@ -129,10 +128,10 @@ class InquiryForm(forms.Form):
         ("7", "毛細血管漏出症候群"),
     )
     病名を選択してください = forms.MultipleChoiceField(label='病名を選択してください♡', choices=chose病名を選択してください, required=False)
-    上記以外の持病をもっていますか = forms.BooleanField(label='上記以外の持病をもっていますか？', )
+    上記以外の持病をもっていますか = forms.BooleanField(label='上記以外の持病をもっていますか？',  required=False)
     その他の病気 = forms.CharField(label='その他の病気', max_length=30, required=False)
 
-    何らかの投薬を受けていますか = forms.BooleanField(label='何らかの投薬を受けていますか？')
+    何らかの投薬を受けていますか = forms.BooleanField(label='何らかの投薬を受けていますか？', required=False)
     '''
     chose何らかの投薬を受けていますか = (
         ("1", "血をサラサラにする薬"),
@@ -144,9 +143,15 @@ class InquiryForm(forms.Form):
         ("1", "はい"),
     )
     '''
-    サラサラにする薬 = forms.BooleanField(label='血液をサラサラにする薬を処方されていますか？')
+    サラサラにする薬 = forms.BooleanField(label='血液をサラサラにする薬を処方されていますか？', required=False)
 
     処方されている薬名を記入してください = forms.CharField(label='処方されている薬名を記入してください', max_length=30, required=False)
+
+    その他に処方されている薬 = forms.BooleanField(label='その他に処方されているお薬はありますか？', required=False)
+
+    その他に処方されている薬名を記入してください = forms.CharField(label='その他に処方されている薬名を記入してください', max_length=30,
+                                                    required=False)
+
     chose接種を希望しますか = (
         ("1", "接種を希望します"),
         ("2", "接種を希望しません"),
@@ -154,14 +159,7 @@ class InquiryForm(forms.Form):
     接種を希望しますか = forms.ChoiceField(label='医師の説明を受け、接種を希望しますか？', choices=chose接種を希望しますか, required=False)
 
 
-    市外局番 =  forms.CharField(label='市外局番', max_length=5)
-    前回受けた予防接種月 = forms.IntegerField(label='前回受けた予防接種月',max_value=12,min_value=1)
-    前回受けた予防接種日 = forms.IntegerField(label='日',max_value=31,min_value=1)
-    性別 = (
-        ("1", "男性"),
-        ("2", "女性"),
-    )
-    性別 = forms.ChoiceField(label='性別',choices=性別)
+
     #degree = forms.SmallIntegerField(label='体温')
 
     '''
@@ -279,6 +277,12 @@ class InquiryForm(forms.Form):
         self.fields['処方されている薬名を記入してください'].widget.attrs['class'] = 'form-control'
         self.fields['処方されている薬名を記入してください'].widget.attrs['placeholder'] = '薬の名前を記述してください'
 
+        self.fields['その他に処方されている薬名を記入してください'].widget.attrs['class'] = 'form-control'
+        self.fields['その他に処方されている薬名を記入してください'].widget.attrs['placeholder'] = 'その他に処方されている薬名を記入してください'
+
+        self.fields['その他に処方されている薬'].widget.attrs['class'] = 'form-control'
+        self.fields['その他に処方されている薬'].widget.attrs['id'] = 'その他に処方されている薬-id'
+        self.fields['その他に処方されている薬'].widget.attrs['placeholder'] = 'その他に処方されているお薬はありますか？'
         '''
         self.fields['title'].widget.attrs['placeholder'] = 'タイトルをここに入力してください。'
         self.fields['市外局番'].widget.attrs['class'] = 'form-control'

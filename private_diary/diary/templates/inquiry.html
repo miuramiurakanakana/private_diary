@@ -68,6 +68,21 @@
             let checkButton2 = document.getElementById('サラサラにする薬-id');
             checkButton2.addEventListener('click', butotnClick3);
             </script>
+    　　　　　<script>
+            function butotnClick4() {
+                if (checkButton3.checked) {
+                    setumei3.style.display ="block";
+
+                } else {
+                    setumei3.style.display ="none";
+                }
+            }
+
+            const setumei3 = document.getElementById("id_その他に処方されている薬名を記入してください_div");
+            setumei3.style.display ="none";
+            let checkButton3 = document.getElementById('その他に処方されている薬-id');
+            checkButton3.addEventListener('click', butotnClick4);
+            </script>
             <form>
             <input type="button" value="PDFを開く" onClick="monshin_output.pdf">
             </form>

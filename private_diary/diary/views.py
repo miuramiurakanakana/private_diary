@@ -114,7 +114,7 @@ class InquiryView(generic.FormView):
         if isMale=="1":
             cc.drawString(334, 666, '✓')
         else:
-            cc.drawString(540, 664, '✓')
+            cc.drawString(370, 664, '✓')
 
         isWakutin = form.cleaned_data['ワクチン接種を以前接種したことはありますか']
         if isWakutin=="1":
@@ -201,6 +201,7 @@ class InquiryView(generic.FormView):
         isサラサラにする薬 = form.cleaned_data['サラサラにする薬']
         if isサラサラにする薬 == "1":
             cc.drawString(81, 493, '✓')
+        else: none
 
         is何らかの投薬を受けていますか = form.cleaned_data['何らかの投薬を受けていますか']
         if is何らかの投薬を受けていますか == "1":
@@ -227,8 +228,9 @@ class InquiryView(generic.FormView):
         cc.drawString(70, 361, form.cleaned_data['具合が悪くなった予防接種名'])  # x, y, 文字列を指定
         cc.drawString(280, 361, form.cleaned_data['症状'])  # x, y, 文字列を指定
         cc.drawString(225, 324, form.cleaned_data['前回受けた予防接種名'])  # x, y, 文字列を指定
-        cc.drawString(370, 324, form.cleaned_data['前回受けた予防接種日'])  # x, y, 文字列を指定
+        # TODO なんかうごかない動cc.drawString(370, 324, form.cleaned_data['前回受けた予防接種日'])  # x, y, 文字列を指定
         cc.drawString(190, 495, form.cleaned_data['処方されている薬名を記入してください'])  # x, y, 文字列を指定
+        cc.drawString(330, 495, form.cleaned_data['その他に処方されている薬名を記入してください'])  # x, y, 文字列を指定
         #cc.drawString(238, 512, form.cleaned_data['病名を選択してください4']) これはその他にしたやつ  # x, y, 文字列を指定
 
         cc.setFont(fontname, 7)  # フォントのサイズを指定
