@@ -107,11 +107,9 @@ class InquiryForm(forms.Form):
         ("2", "いいえ"),
     )
     現在妊娠していますか = forms.ChoiceField(label='現在妊娠していますか？', choices=chose現在妊娠していますか, required=False)
-    chose_2週間以内に予防接種を打ちましたか = (
-        ("1", "はい"),
-        ("2", "いいえ"),
-    )
-    _2週間以内に予防接種を打ちましたか = forms.ChoiceField(label='2週間以内に予防接種を打ちましたか？', choices=chose_2週間以内に予防接種を打ちましたか, required=False)
+    _2週間以内に予防接種を打ちましたか = forms.BooleanField(label='2週間以内に予防接種を打ちましたか？', required=False)
+    _2週間以内に打った予防接種の種類 = forms.CharField(label='2週間以内に打った予防接種の種類を記入してください', max_length=4, required=False)
+
     chose_今日の予防接種について何か質問はありますか = (
         ("1", "はい"),
         ("2", "いいえ"),
@@ -255,6 +253,8 @@ class InquiryForm(forms.Form):
         self.fields['現在妊娠していますか'].widget.attrs['placeholder'] = '妊娠又は授乳中ですか？　はいorいいえでお応えください'
         self.fields['_2週間以内に予防接種を打ちましたか'].widget.attrs['class'] = 'form-control'
         self.fields['_2週間以内に予防接種を打ちましたか'].widget.attrs['placeholder'] = '妊娠又は授乳中ですか？　はいorいいえでお応えください'
+        self.fields['_2週間以内に打った予防接種の種類'].widget.attrs['class'] = 'form-control'
+        self.fields['_2週間以内に打った予防接種の種類'].widget.attrs['placeholder'] = '2週間以内に打った予防接種の種類を記入してください'
         self.fields['_今日の予防接種について何か質問はありますか'].widget.attrs['class'] = 'form-control'
         self.fields['_今日の予防接種について何か質問はありますか'].widget.attrs['placeholder'] = '今回の予防接種について質問はありますか？　はいorいいえでお応えください'
         self.fields['何らかの持病をもっていますか'].widget.attrs['id'] = '何らかの持病をもっていますか-id'
