@@ -83,6 +83,23 @@
             let checkButton3 = document.getElementById('その他に処方されている薬-id');
             checkButton3.addEventListener('click', butotnClick4);
             </script>
+    　　　　　<script>
+            function butotnClick5() {
+                if (checkButton4.checked) {
+                    setumei4.style.display ="block";
+                    setumei5.style.display ="block";
+                } else {
+                    setumei4.style.display ="none";
+                    setumei5.style.display ="none";
+                }
+            }
+
+            const setumei4 = document.getElementById("id__2週間以内に打った予防接種の種類_div");
+            const setumei5 = document.getElementById("id__2週間以内に打った予防接種の日付_div");
+            setumei4.style.display ="none";
+            let checkButton4 = document.getElementById('_2週間以内に予防接種を打ちましたか-id');
+            checkButton4.addEventListener('click', butotnClick5);
+            </script>
             <form>
             <input type="button" value="PDFを開く" onClick="monshin_output.pdf">
             </form>

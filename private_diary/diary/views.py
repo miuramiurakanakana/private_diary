@@ -231,7 +231,8 @@ class InquiryView(generic.FormView):
         # TODO なんかうごかない動cc.drawString(370, 324, form.cleaned_data['前回受けた予防接種日'])  # x, y, 文字列を指定
         cc.drawString(190, 495, form.cleaned_data['処方されている薬名を記入してください'])  # x, y, 文字列を指定
         cc.drawString(330, 495, form.cleaned_data['その他に処方されている薬名を記入してください'])  # x, y, 文字列を指定
-        cc.drawString(223, 323, form.cleaned_data['2週間以内に打った予防接種の種類を記入してください'])  # x, y, 文字列を指定
+        cc.drawString(223, 323, form.cleaned_data['_2週間以内に打った予防接種の種類'])  # x, y, 文字列を指定
+        cc.drawString(370, 323, form.cleaned_data['_2週間以内に打った予防接種の日付'])  # x, y, 文字列を指定
         #cc.drawString(238, 512, form.cleaned_data['病名を選択してください4']) これはその他にしたやつ  # x, y, 文字列を指定
 
         cc.setFont(fontname, 7)  # フォントのサイズを指定
