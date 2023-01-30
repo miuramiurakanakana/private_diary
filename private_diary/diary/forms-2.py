@@ -3,7 +3,7 @@ import os
 from django import forms
 from django.core.mail import EmailMessage
 
-class InquiryForm(forms-2.Form):
+class InquiryForm(forms.Form):
 
 
     都道府県 = forms.CharField(label='都道府県', max_length=30, required=False)
