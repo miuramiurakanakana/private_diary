@@ -17,14 +17,14 @@ from .forms import InquiryForm
 
 logger = logging.getLogger(__name__)
 
-from django.views2 import generic
+from django.views import generic
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
-class InquiryView(generic.FormView):
-    template_name = "inquiry.html"
+class Inquiry2View(generic.FormView):
+    template_name = "inquiry2.html"
     form_class = InquiryForm
-    success_url = reverse_lazy('diary:inquiry')
+    success_url = reverse_lazy('diary:inquiry2')
 
 
     def form_valid(self, form):
@@ -47,4 +47,4 @@ class InquiryView(generic.FormView):
         pp = pagexobj(pages[0])
         cc.doForm(makerl(cc, pp))
 
-    return HttpResponseRedirect("http://127.0.0.1:8000/static/assets/monshin2_output.pdf")
+
