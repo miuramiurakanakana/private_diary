@@ -126,7 +126,7 @@ class InquiryForm(forms.Form):
         ("6", "免疫不全"),
         ("7", "毛細血管漏出症候群"),
     )
-    病名を選択してください = forms.MultipleChoiceField(label='病名を選択してください♡', choices=chose病名を選択してください, required=False)
+    病名を選択してください = forms.ChoiceField(label='病名を選択してください♡', choices=chose病名を選択してください, required=False)
     上記以外の持病をもっていますか = forms.BooleanField(label='上記以外の持病をもっていますか？',  required=False)
     その他の病気 = forms.CharField(label='その他の病気', max_length=30, required=False)
 

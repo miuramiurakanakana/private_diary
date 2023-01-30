@@ -20,7 +20,9 @@
                 {{ field.errors }}
             </div>
             {% endfor %}
-        <button class="btn btn-primary" type="submit">送信</button>
+
+        <button class="btn btn-primary" type="submit" id="sendbutton">送信</button>
+
         </form>
         <script>
             function butotnClick() {
@@ -100,13 +102,6 @@
             let checkButton4 = document.getElementById('_2週間以内に予防接種を打ちましたか-id');
             checkButton4.addEventListener('click', butotnClick5);
             </script>
-            <form>
-            <input type="button" value="PDFを開く" onClick="monshin_output.pdf">
-            </form>
-
-            <a href="monshin_output.pdf" target="_blank">PDFを開く</a>
-
-            <img src="open.gif" width="700" height="900" alt="xx" onClick="window.open('monshin_output.pdf')">
 
 
     </div>

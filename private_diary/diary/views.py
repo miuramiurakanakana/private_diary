@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from pdfrw import PdfReader
 from pdfrw.buildxobj import pagexobj
 from pdfrw.toreportlab import makerl
@@ -10,6 +11,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 import logging
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.shortcuts import redirect
 
 from .forms import InquiryForm
 
@@ -33,6 +35,7 @@ class InquiryView(generic.FormView):
 
         monshin_template = './monshin_template.pdf'
         output_path = './diary/static/assets/monshin_output.pdf'
+
 
         # 元のPDFを読み込み
         pages = PdfReader(monshin_template, decompress=False).pages
@@ -244,13 +247,21 @@ class InquiryView(generic.FormView):
         cc.drawString(328, 692, form.cleaned_data['加入者番号'])  # x, y, 文字列を指定
 
 
-
-
-
         cc.showPage()
         cc.save()
 
         #djangoの何らかの機能を使って、下のURLを新しいタブで開くこと
         # http://127.0.0.1:8000/static/assets/monshin_output.pdf
 
-        return super().form_valid(form)
+
+        return HttpResponseRedirect("http://127.0.0.1:8000/static/assets/monshin_output.pdf")
+
+
+
+
+
+
+
+
+
+
