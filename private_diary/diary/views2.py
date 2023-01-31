@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import redirect
 
-from .forms import InquiryForm
+from .forms2 import InquiryForm2
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ class IndexView(generic.TemplateView):
 
 class Inquiry2View(generic.FormView):
     template_name = "inquiry2.html"
-    form_class = InquiryForm
+    form_class = InquiryForm2
     success_url = reverse_lazy('diary:inquiry2')
 
 
@@ -39,12 +39,20 @@ class Inquiry2View(generic.FormView):
 
         # 元のPDFを読み込み
         pages = PdfReader(monshin2_template, decompress=False).pages
-
         # キャンバスのセット
         cc = canvas.Canvas(output_path, pagesize=portrait(A4))
 
         # ページ取得
         pp = pagexobj(pages[0])
         cc.doForm(makerl(cc, pp))
+
+
+        cc.setFont(fontname, 10)  # フォントのサイズを指定
+        cc.drawString(328, 692, form.cleaned_data['都道府県'])  # x, y, 文字列を指定
+
+        cc.showPage()
+        cc.save()
+
+        return HttpResponseRedirect("http://127.0.0.1:8000/static/assets/monshin2_output.pdf")
 
 
