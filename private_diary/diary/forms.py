@@ -27,7 +27,7 @@ class InquiryForm(forms.Form):
     市町村の区分 = forms.ChoiceField(label='市町村の区分', choices=chose市町村の区分, required=False)
     市町村以下の住所 = forms.CharField(label='市町村以下の住所', max_length=30,required=False)
     お名前 = forms.CharField(label='お名前', max_length=30,required=False)
-    伽奈 = forms.CharField(label='フリガナ', max_length=30,required=False)
+    カナ = forms.CharField(label='フリガナ', max_length=30,required=False)
     市外局番 = forms.CharField(label='市外局番', max_length=5,required=False)
     市内局番 = forms.CharField(label='市内局番', max_length=4,required=False)
     加入者番号 = forms.CharField(label='加入者番号', max_length=4,required=False)
@@ -187,8 +187,8 @@ class InquiryForm(forms.Form):
         self.fields['市町村以下の住所'].widget.attrs['placeholder'] = '市町村以下の住所をここに入力してください。'
         self.fields['お名前'].widget.attrs['class'] = 'form-control'
         self.fields['お名前'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
-        self.fields['伽奈'].widget.attrs['class'] = 'form-control'
-        self.fields['伽奈'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
+        self.fields['カナ'].widget.attrs['class'] = 'form-control'
+        self.fields['カナ'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
         self.fields['市外局番'].widget.attrs['class'] = 'form-control'
         self.fields['市外局番'].widget.attrs['placeholder'] = '市外局番をここに入力してください。'
         self.fields['市内局番'].widget.attrs['class'] = 'form-control'

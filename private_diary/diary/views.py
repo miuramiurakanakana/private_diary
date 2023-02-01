@@ -241,7 +241,7 @@ class InquiryView(generic.FormView):
         cc.setFont(fontname, 7)  # フォントのサイズを指定
         # cc.drawString(60, 755, '京都')
         # x, y, 文字列を指定
-        cc.drawString(60, 712, form.cleaned_data['伽奈'])  # x, y, 文字列を指定
+        cc.drawString(60, 712, form.cleaned_data['カナ'])  # x, y, 文字列を指定
         cc.drawString(280, 708, form.cleaned_data['市外局番'])   # x, y, 文字列を指定
         cc.drawString(280, 692, form.cleaned_data['市内局番'])   # x, y, 文字列を指定
         cc.drawString(328, 692, form.cleaned_data['加入者番号'])  # x, y, 文字列を指定
