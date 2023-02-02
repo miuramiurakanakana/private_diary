@@ -86,6 +86,15 @@ class Inquiry2View(generic.FormView):
         cc.drawString(80, 655, form.cleaned_data['電話番号'])  # x, y, 文字列を指定
         cc.drawString(330, 655, form.cleaned_data['携帯電話番号'])  # x, y, 文字列を指定
         cc.drawString(180, 510, form.cleaned_data['血圧'])  # x, y, 文字列を指定
+        cc.drawString(135, 407, form.cleaned_data['病気'])  # x, y, 文字列を指定
+        cc.drawString(55, 350, form.cleaned_data['お薬名'])  # x, y, 文字列を指定
+        cc.drawString(55, 287, form.cleaned_data['アレルギー名'])  # x, y, 文字列を指定
+        cc.drawString(130, 230, form.cleaned_data['手術日'])  # x, y, 文字列を指定
+        cc.drawString(130, 198, form.cleaned_data['手術病名'])  # x, y, 文字列を指定
+        cc.drawString(130, 168, form.cleaned_data['手術病院'])  # x, y, 文字列を指定
+        cc.drawString(195, 102, form.cleaned_data['たばこ頻度'])  # x, y, 文字列を指定
+        cc.drawString(232, 102, form.cleaned_data['たばこ期間'])  # x, y, 文字列を指定
+        cc.drawString(478, 102, form.cleaned_data['禁煙期間'])  # x, y, 文字列を指定
 
         cc.setFont(fontname, 20)  # フォントのサイズを指定
         cc.drawString(475, 730, form.cleaned_data['体温'])  # x, y, 文字列を指定
@@ -137,6 +146,81 @@ class Inquiry2View(generic.FormView):
             cc.drawString(421, 526, '✓') #ふらつく
         else:
             cc.drawString(55, 494, '✓') #その他
+
+        is治療中の病気 = form.cleaned_data['治療中の病気']
+        if is治療中の病気 == "1":
+            cc.drawString(172, 465, '✓')
+        else:
+            cc.drawString(244, 465, '✓')
+
+        is病名 = form.cleaned_data['病名']
+        if is病名 == "1":
+            cc.drawString(55, 448, '✓')  # 高血圧
+        elif is病名 == "2":
+            cc.drawString(55, 432, '✓')  # 脳こうそく
+        elif is病名 == "3":
+            cc.drawString(133, 448, '✓')  # 高脂血症
+        elif is病名 == "4":
+            cc.drawString(156, 432, '✓')  # 不整脈
+        elif is病名 == "5":
+            cc.drawString(228, 448, '✓')  # 糖尿病
+        elif is病名 == "6":
+            cc.drawString(241, 432, '✓')  # ぜんそく
+        elif is病名 == "7":
+            cc.drawString(313, 448, '✓')  # 腎臓病
+        elif is病名 == "8":
+            cc.drawString(337, 432, '✓')  # 緑内障
+        elif is病名 == "9":
+            cc.drawString(397, 448, '✓')  # 痛風
+        elif is病名 == "10":
+            cc.drawString(421, 432, '✓')  # 関節リウマチ
+        else:
+            cc.drawString(55, 416, '✓')  # その他
+
+        isお薬 = form.cleaned_data['お薬']
+        if isお薬 == "1":
+            cc.drawString(197, 385, '✓')
+        else:
+            cc.drawString(269, 385, '✓')
+
+        isアレルギー = form.cleaned_data['アレルギー']
+        if isアレルギー == "1":
+            cc.drawString(293, 306, '✓')
+        else:
+            cc.drawString(365, 306, '✓')
+
+        is手術経験 = form.cleaned_data['手術経験']
+        if is手術経験 == "1":
+            cc.drawString(378, 259, '✓')
+        else:
+            cc.drawString(450, 258, '✓')
+
+        isお酒 = form.cleaned_data['お酒']
+        if isお酒 == "1":
+            cc.drawString(112, 118, '✓')
+        else:
+            cc.drawString(184, 118, '✓')
+
+        isたばこ = form.cleaned_data['たばこ']
+        if isたばこ == "1":
+            cc.drawString(109, 102, '✓')
+        elif isたばこ == "2":
+            cc.drawString(296, 102, '✓')
+        else:
+            cc.drawString(392, 102, '✓')
+
+        is妊娠 = form.cleaned_data['妊娠']
+        if is妊娠 == "1":
+            cc.drawString(149, 56, '✓')
+        else:
+            cc.drawString(221, 56, '✓')
+
+        is授乳中 = form.cleaned_data['授乳中']
+        if is授乳中 == "1":
+            cc.drawString(413, 56, '✓')
+        else:
+            cc.drawString(497, 56, '✓')
+
 
 
         # 位置指定〔　円　〕
