@@ -50,7 +50,7 @@ class InquiryView(generic.FormView):
         # 文字サイズで書き出し
         cc.setFont(fontname, 20)  # フォントとサイズを指定
         bird前回受けた予防接種日 = form.cleaned_data['誕生日']
-        bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
+        #bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
         cc.drawString(64, 664, bird前回受けた予防接種日[0])  # x, y, 文字列を指定
         cc.drawString(81, 664, bird前回受けた予防接種日[1])  # x, y, 文字列を指定
         cc.drawString(98, 664, bird前回受けた予防接種日[2])  # x, y, 文字列を指定
@@ -62,18 +62,18 @@ class InquiryView(generic.FormView):
 
 
         old = form.cleaned_data['年齢']
-        old = "020"  # TODO 後で決しておく
+        #old = "020"  # TODO 後で決しておく
         cc.drawString(261, 664, old[0])  # x, y, 文字列を指定
         cc.drawString(278, 664, old[1])  # x, y, 文字列を指定
         cc.drawString(295, 664, old[2])  # x, y, 文字列を指定
 
         tmp1 = form.cleaned_data['体温_度']
-        tmp1 = "00"  # TODO 後で決しておく
+        #tmp1 = "00"  # TODO 後で決しておく
         cc.drawString(483, 664, tmp1[0])  # x, y, 文字列を指定
         cc.drawString(500, 664, tmp1[1])  # x, y, 文字列を指定
 
         tmp2 = form.cleaned_data['体温_分']
-        tmp2 = "0"  # TODO 後で決しておく
+        #tmp2 = "0"  # TODO 後で決しておく
         cc.drawString(540, 664, tmp2[0])  # x, y, 文字列を指定
 
 
