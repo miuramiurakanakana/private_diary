@@ -144,6 +144,7 @@ class Inquiry2Form(forms.Form):
         self.fields['治療中の病気'].widget.attrs['id'] = '治療中の病気-id'
         self.fields['治療中の病気'].widget.attrs['placeholder'] = '治療中の病気はありますか？'
         self.fields['病名'].widget.attrs['placeholder'] = 'form-control'
+        self.fields['病名'].widget.attrs['id'] = '病名-id'
         self.fields['病名'].widget.attrs['placeholder'] = '治療中の病気名を選択してください'
         self.fields['病気'].widget.attrs['class'] = 'form-control'
         self.fields['病気'].widget.attrs['placeholder'] = 'その他の病気をここに入力してください。'
