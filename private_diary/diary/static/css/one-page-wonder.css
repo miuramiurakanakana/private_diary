@@ -107,7 +107,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Catamaran", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 800;
+  /*font-weight: 800;*/
   line-height: 1.2;
 }
 
@@ -237,10 +237,10 @@ sup {
   top: -0.5em;
 }
 
-a {
+/*a
   color: #ee0979;
   text-decoration: underline;
-}
+}*/
 a:hover {
   color: #be0761;
 }
@@ -2996,22 +2996,22 @@ textarea.form-control-lg {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  /*font-weight: 400;*/
   line-height: 1.5;
-  color: #212529;
+  /*color: #212529;*/
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-user-select: none;
+  /*-webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
+      -ms-user-select: none;*/
           user-select: none;
-  background-color: transparent;
+  /*background-color: transparent;*/
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
+  /*padding: 0.375rem 0.75rem;*/
+  /*font-size: 1rem;*/
+  /*border-radius: 0.25rem;*/
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3033,8 +3033,12 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #ee0979;
-  border-color: #ee0979;
+  background-color: #0d0c0c7a;
+  border-color: #0d0c0d;
+    border-top-color: rgb(13, 12, 13);
+    border-right-color: rgb(13, 12, 13);
+    border-bottom-color: rgb(13, 12, 13);
+    border-left-color: rgb(13, 12, 13);
 }
 .btn-primary:hover {
   color: #fff;
@@ -7674,9 +7678,9 @@ textarea.form-control-lg {
   text-align: right !important;
 }
 
-.text-center {
+/*.text-center {
   text-align: center !important;
-}
+}*/
 
 .text-decoration-none {
   text-decoration: none !important;
@@ -7762,10 +7766,10 @@ textarea.form-control-lg {
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-white {
+/*.text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
-}
+}*/
 
 .text-body {
   --bs-text-opacity: 1;
@@ -11324,7 +11328,8 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+
+  background-image: url("/static/assets/haikei koukai.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
