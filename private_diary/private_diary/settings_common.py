@@ -128,7 +128,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
 SITE_ID = 1
 
-AUTHENITICATION_BACKENDS = (
+AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     # 一般ユーザー用(メールアドレス認証)
     'django.contrib.auth.backends.ModelBackend',

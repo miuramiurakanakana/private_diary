@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 
 class InquiryForm(forms.Form):
 
+
     '''
     email = forms.EmailField(label='メールアドレス')
     '''
@@ -168,13 +169,15 @@ class InquiryForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        '''
+
+
         self.fields['お名前'].widget.attrs['class'] = 'form-control'
         self.fields['お名前'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['placeholder'] = 'メールアドレスをここに入力してください。'
         self.fields['title'].widget.attrs['class'] = 'form-control'
-        '''
+
+
         self.fields['都道府県'].widget.attrs['class'] = 'form-control'
         self.fields['都道府県'].widget.attrs['placeholder'] = '都道府県名をここに入力してください。'
         self.fields['都道府県の区分'].widget.attrs['class'] = 'form-control'
@@ -287,7 +290,7 @@ class InquiryForm(forms.Form):
         self.fields['その他に処方されている薬'].widget.attrs['class'] = 'form-control'
         self.fields['その他に処方されている薬'].widget.attrs['id'] = 'その他に処方されている薬-id'
         self.fields['その他に処方されている薬'].widget.attrs['placeholder'] = 'その他に処方されているお薬はありますか？'
-        '''
+
         self.fields['title'].widget.attrs['placeholder'] = 'タイトルをここに入力してください。'
         self.fields['市外局番'].widget.attrs['class'] = 'form-control'
         self.fields['市外局番'].widget.attrs['placeholder'] = '電話番号をここに入力してください。'
@@ -301,15 +304,16 @@ class InquiryForm(forms.Form):
         self.fields['degree'].widget.attrs['placeholder'] = '体温をここに入力してください。'
         self.fields['message'].widget.attrs['class'] = 'form-control'
         self.fields['message'].widget.attrs['placeholder'] = 'メッセージをここに入力してください。'
-         '''
+
 
 
 
 
         def send_email(self):
 
-            お名前 = self.cleaned_data['お名前']
             email = self.cleaned_data['email']
+        '''
+            お名前 = self.cleaned_data['お名前']
             都道府県 = self.cleaned_data['都道府県']
             市町村 = self.cleaned_data['市町村']
             市町村以下の住所 = self.cleaned_data['市町村以下の住所']
@@ -319,9 +323,13 @@ class InquiryForm(forms.Form):
             前回受けた予防接種日 = self.cleaned_data['前回受けた予防接種日']
             性別 = self.cleaned_data['性別']
             degree = self.cleaned_data['degree']
-            '''
+
+
+
             title = self.cleaned_data['title']
             message = self.cleaned_data['message']
+        
+
             subject = 'お問い合わせ{}'.format(title)
             message = '送信者名：{0}\nメールアドレス：{1}\nメッセージ：\n{2}'.format(name, email, message)
             from_email = os.environ.get('FROM_EMAIL')
@@ -331,9 +339,11 @@ class InquiryForm(forms.Form):
             cc_list = [
                 email
             ]
-           '''
+           
+
+
             message = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list, cc=cc_list)
             message.send()
 
-
+              '''
 
