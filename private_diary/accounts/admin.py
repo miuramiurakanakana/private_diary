@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import inquiry
 
-admin.site.register(inquiry)
+# Register your models here.
+from .models import CustomUser
 
-
-
-
+admin.site.register(CustomUser)

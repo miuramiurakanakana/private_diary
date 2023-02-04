@@ -21,6 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Application definition
 
+"""
+💛💚💛💚💛💚💛💚
+！！！！！注意！！！！！！
+なぜかsettings commonにかくと動かなくなる！！！！
+settingsに書くように！！！
+💛💚💛💚💛💚💛💚
+"""
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -17,6 +17,20 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#データベースの設定
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'private_diary',
+        'USER': 'postgres',
+        'PASSWORD': '365298',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -45,6 +59,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'django_bootstrap5',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +183,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
