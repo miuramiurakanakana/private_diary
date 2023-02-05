@@ -9,7 +9,7 @@ class InquiryForm(forms.Form):
     email = forms.EmailField(label='メールアドレス')
     '''
 
-    都道府県 = forms.CharField(label='都道府県', max_length=30,required=False)
+    都道府県 = forms.CharField(label='都道府県', max_length=30,required=False,initial="aaaa")
     chose都道府県の区分 = (
         ("1","都"),
         ("2","道"),

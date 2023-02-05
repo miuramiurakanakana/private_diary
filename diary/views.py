@@ -23,10 +23,6 @@ from django.views import generic
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
-class InquiryView(generic.FormView):
-    template_name = "inquiry.html"
-    form_class = InquiryForm
-    success_url = reverse_lazy('diary:inquiry')
 
 class DiaryListView(LoginRequiredMixin, generic.ListView):
     model = Diary
@@ -37,10 +33,14 @@ class DiaryListView(LoginRequiredMixin, generic.ListView):
         diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
         return diaries
 
+class InquiryView(generic.FormView):
+    template_name = "inquiry.html"
+    form_class = InquiryForm
+    success_url = reverse_lazy('diary:inquiry')
 
     def form_valid(self, form):
 
-
+        Diary.objects.create(user=self.request.user,title="bbb",都道府県=form.cleaned_data['都道府県'])
 
         # フォントファイルを指定して、フォントを登録
         fontname = "IPA Gothic"
