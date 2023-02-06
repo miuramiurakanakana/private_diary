@@ -19,7 +19,7 @@
             {% for diary in diary_list %}
             <div class="post-preview">
                     <h2 class="post-title">
-                        {{ diary.title }}
+                        <a href="http://127.0.0.1:8000/inquiry/?id={{ diary.id }}">{{ diary.title }}</a>
                     </h2>
                     <h3 class="post-subtitle">
                         {{ diary.content|truncatechars:20 }}
