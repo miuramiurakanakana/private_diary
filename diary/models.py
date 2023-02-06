@@ -5,13 +5,17 @@ from django.db import models
 class Diary(models.Model):
     """日記モデル"""
 
+
+    # 自動採番される整数型のID
+    id = models.AutoField(primary_key=True)
+
     user = models.ForeignKey(CustomUser, verbose_name='ユーザー', on_delete=models.PROTECT)
     title = models.CharField(verbose_name='タイトル', max_length=40, blank=True, null=True)
 
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
     都道府県 = models.CharField(verbose_name='都道府県', max_length=40, blank=True, null=True)
-    区分 = models.CharField(label='都道府県の区分', required=False)
+    #区分 = models.CharField(label='都道府県の区分', required=False)
     区分 = (
           ("1", "都"),
           ("2", "道"),
