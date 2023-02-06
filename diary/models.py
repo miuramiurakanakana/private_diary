@@ -11,13 +11,7 @@ class Diary(models.Model):
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
     都道府県 = models.CharField(verbose_name='都道府県', max_length=40, blank=True, null=True)
-    区分 = models.CharField(label='都道府県の区分', required=False)
-    区分 = (
-          ("1", "都"),
-          ("2", "道"),
-          ("3", "府"),
-          ("4", "県"),
-    )
+    都道府県の区分 = models.CharField(verbose_name='都道府県の区分', max_length=10, blank=False, null=True)
     市町村 = models.CharField(verbose_name='市町村', max_length=40, blank=True, null=True)
     #chose市町村の区分 = (
     #    ("1", "市"),
@@ -55,6 +49,30 @@ class Diary(models.Model):
     症状 = models.CharField(verbose_name='症状', max_length=40, blank=True, null=True)
     前回受けた予防接種名 = models.CharField(verbose_name='前回受けた予防接種名', max_length=40, blank=True, null=True)
     前回受けた予防接種日 = models.CharField(verbose_name='前回受けた予防接種日', max_length=40, blank=True, null=True)
+    ワクチン接種を以前接種したことはありますか = models.CharField(verbose_name='前回受けた予防接種日', max_length=40, blank=True, null=True)
+    現住所と住民票の住所は同じですか = models.CharField(verbose_name='現住所と住民票の住所は同じですか？', max_length=40, blank=True, null=True)
+    ワクチンの副反応について理解していますか = models.CharField(verbose_name='ワクチンの副反応について理解していますか？', max_length=40, blank=True, null=True)
+    現在治療を受けていますか = models.CharField(verbose_name='ワクチンの副反応について理解していますか？', max_length=40, blank=True, null=True)
+    持病はありますか = models.CharField(verbose_name='持病はありますか？', max_length=40, blank=True, null=True)
+    体に具合悪いところはありますか = models.CharField(verbose_name='体に具合悪いところはありますか？', max_length=40, blank=True, null=True)
+    痙攣を起こしたことはありますか = models.CharField(verbose_name='痙攣を起こしたことはありますか？', max_length=40, blank=True, null=True)
+    重度のアレルギーはありますか = models.CharField(verbose_name='重度のアレルギーはありますか？', max_length=40, blank=True, null=True)
+    予防接種で具合が悪くなったことはありますか = models.CharField(verbose_name='予防接種で具合が悪くなったことはありますか？', max_length=40, blank=True, null=True)
+    現在妊娠していますか = models.CharField(verbose_name='現在妊娠していますか？', max_length=40, blank=True, null=True)
+    _2週間以内に予防接種を打ちましたか = models.CharField(verbose_name='2週間以内に予防接種を打ちましたか？', max_length=40, blank=True, null=True)
+    _2週間以内に打った予防接種の種類 = models.CharField(verbose_name='2週間以内に打った予防接種の種類を記入してください', max_length=40, blank=True, null=True)
+    _2週間以内に打った予防接種の日付 = models.CharField(verbose_name='2週間以内に打った予防接種の日付を記入してください', max_length=40, blank=True, null=True)
+    _今日の予防接種について何か質問はありますか = models.CharField(verbose_name='今日の予防接種について何か質問はありますか？', max_length=40, blank=True, null=True)
+    病名を選択してください = models.CharField(verbose_name='病名を選択してください', max_length=40, blank=True, null=True)
+    上記以外の持病をもっていますか = models.CharField(verbose_name='上記以外の持病をもっていますか？', max_length=40, blank=True, null=True)
+    その他の病気 = models.CharField(verbose_name='その他の病気', max_length=40, blank=True, null=True)
+    何らかの投薬を受けていますか = models.CharField(verbose_name='何らかの投薬を受けていますか？', max_length=40, blank=True, null=True)
+    サラサラにする薬 = models.CharField(verbose_name='血液をサラサラにする薬を処方されていますか？', max_length=40, blank=True, null=True)
+    処方されている薬名を記入してください = models.CharField(verbose_name='処方されている薬名を記入してください', max_length=40, blank=True, null=True)
+    その他に処方されている薬 = models.CharField(verbose_name='その他に処方されているお薬はありますか？', max_length=40, blank=True, null=True)
+    その他に処方されている薬名を記入してください = models.CharField(verbose_name='その他に処方されている薬名を記入してください', max_length=40, blank=True, null=True)
+    接種を希望しますか = models.CharField(verbose_name='医師の説明を受け、接種を希望しますか？', max_length=40, blank=True, null=True)
+
     class Meta:
         verbose_name_plural = 'Diary'
 

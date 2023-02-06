@@ -16,7 +16,7 @@ class InquiryForm(forms.Form):
         ("3", "府"),
         ("4", "県"),
     )
-    都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
+    都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False,initial=4)
     市町村 = forms.CharField(label='市町村', max_length=30, required=False, initial="a")
     chose市町村の区分 = (
         ("1", "市"),
@@ -26,18 +26,18 @@ class InquiryForm(forms.Form):
     )
     市町村の区分 = forms.ChoiceField(label='市町村の区分', choices=chose市町村の区分, required=False)
     市町村以下の住所 = forms.CharField(label='市町村以下の住所', max_length=30, required=False, initial="a")
-    お名前 = forms.CharField(label='お名前', max_length=30,required=False, initial="a")
-    カナ = forms.CharField(label='フリガナ', max_length=30,required=False, initial="a")
-    市外局番 = forms.CharField(label='市外局番', max_length=5,required=False, initial="a")
-    市内局番 = forms.CharField(label='市内局番', max_length=4,required=False, initial="a")
-    加入者番号 = forms.CharField(label='加入者番号', max_length=4,required=False, initial="a")
-    誕生日 = forms.CharField(label='誕生日', max_length=8,required=False, initial="a")
-    年齢 = forms.CharField(label='年齢', max_length=3,required=False, initial="a")
-    体温_度 = forms.CharField(label='体温(度)', max_length=2,required=False, initial="a")
-    体温_分 = forms.CharField(label='体温(分)', max_length=2,required=False, initial="a")
+    お名前 = forms.CharField(label='お名前', max_length=30, required=False, initial="a")
+    カナ = forms.CharField(label='フリガナ', max_length=30, required=False, initial="a")
+    市外局番 = forms.CharField(label='市外局番', max_length=5, required=False, initial="a")
+    市内局番 = forms.CharField(label='市内局番', max_length=4, required=False, initial="a")
+    加入者番号 = forms.CharField(label='加入者番号', max_length=4, required=False, initial="a")
+    誕生日 = forms.CharField(label='誕生日', max_length=8, required=False, initial="a")
+    年齢 = forms.CharField(label='年齢', max_length=3, required=False, initial="a")
+    体温_度 = forms.CharField(label='体温(度)', max_length=2, required=False, initial="a")
+    体温_分 = forms.CharField(label='体温(分)', max_length=2, required=False, initial="a")
     chose性別 = (
-        ("1","男性"),
-        ("2","女性"),
+        ("1", "男性"),
+        ("2", "女性"),
     )
     性別 = forms.ChoiceField(label='性別', choices=chose性別, required=False,)
 
