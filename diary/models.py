@@ -5,6 +5,10 @@ from django.db import models
 class Diary(models.Model):
     """日記モデル"""
 
+
+    # 自動採番される整数型のID
+    id = models.AutoField(primary_key=True)
+
     user = models.ForeignKey(CustomUser, verbose_name='ユーザー', on_delete=models.PROTECT)
     title = models.CharField(verbose_name='タイトル', max_length=40, blank=True, null=True)
 

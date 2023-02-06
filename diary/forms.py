@@ -9,15 +9,15 @@ class InquiryForm(forms.Form):
     email = forms.EmailField(label='メールアドレス')
     '''
 
-    都道府県 = forms.CharField(label='都道府県', max_length=30, required=False, initial="aaaa")
+    都道府県 = forms.CharField(label='都道府県', max_length=30, required=False)
     chose都道府県の区分 = (
         ("1", "都"),
         ("2", "道"),
         ("3", "府"),
         ("4", "県"),
     )
-    都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False,initial=4)
-    市町村 = forms.CharField(label='市町村', max_length=30, required=False, initial="a")
+    都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
+    市町村 = forms.CharField(label='市町村', max_length=30, required=False)
     chose市町村の区分 = (
         ("1", "市"),
         ("2", "区"),
