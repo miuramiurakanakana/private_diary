@@ -40,7 +40,7 @@ class InquiryView(generic.FormView):
 
     def form_valid(self, form):
 
-        Diary.objects.create(user=self.request.user,title="bbb",都道府県=form.cleaned_data['都道府県'])
+        Diary.objects.create(user=self.request.user, title="bbb", 都道府県=form.cleaned_data['都道府県'], 区分=form.cleaned_data['都道府県の区分'])
 
         # フォントファイルを指定して、フォントを登録
         fontname = "IPA Gothic"

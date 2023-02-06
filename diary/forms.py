@@ -9,15 +9,15 @@ class InquiryForm(forms.Form):
     email = forms.EmailField(label='メールアドレス')
     '''
 
-    都道府県 = forms.CharField(label='都道府県', max_length=30,required=False,initial="aaaa")
+    都道府県 = forms.CharField(label='都道府県', max_length=30, required=False, initial="aaaa")
     chose都道府県の区分 = (
-        ("1","都"),
-        ("2","道"),
-        ("3","府"),
-        ("4","県"),
+        ("1", "都"),
+        ("2", "道"),
+        ("3", "府"),
+        ("4", "県"),
     )
     都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
-    市町村 = forms.CharField(label='市町村', max_length=30,required=False)
+    市町村 = forms.CharField(label='市町村', max_length=30, required=False, initial="a")
     chose市町村の区分 = (
         ("1", "市"),
         ("2", "区"),
@@ -25,36 +25,36 @@ class InquiryForm(forms.Form):
         ("4", "村"),
     )
     市町村の区分 = forms.ChoiceField(label='市町村の区分', choices=chose市町村の区分, required=False)
-    市町村以下の住所 = forms.CharField(label='市町村以下の住所', max_length=30,required=False)
-    お名前 = forms.CharField(label='お名前', max_length=30,required=False)
-    カナ = forms.CharField(label='フリガナ', max_length=30,required=False)
-    市外局番 = forms.CharField(label='市外局番', max_length=5,required=False)
-    市内局番 = forms.CharField(label='市内局番', max_length=4,required=False)
-    加入者番号 = forms.CharField(label='加入者番号', max_length=4,required=False)
-    誕生日 = forms.CharField(label='誕生日', max_length=8,required=False)
-    年齢 = forms.CharField(label='年齢', max_length=3,required=False)
-    体温_度 = forms.CharField(label='体温(度)', max_length=2,required=False)
-    体温_分 = forms.CharField(label='体温(分)', max_length=2,required=False)
+    市町村以下の住所 = forms.CharField(label='市町村以下の住所', max_length=30, required=False, initial="a")
+    お名前 = forms.CharField(label='お名前', max_length=30,required=False, initial="a")
+    カナ = forms.CharField(label='フリガナ', max_length=30,required=False, initial="a")
+    市外局番 = forms.CharField(label='市外局番', max_length=5,required=False, initial="a")
+    市内局番 = forms.CharField(label='市内局番', max_length=4,required=False, initial="a")
+    加入者番号 = forms.CharField(label='加入者番号', max_length=4,required=False, initial="a")
+    誕生日 = forms.CharField(label='誕生日', max_length=8,required=False, initial="a")
+    年齢 = forms.CharField(label='年齢', max_length=3,required=False, initial="a")
+    体温_度 = forms.CharField(label='体温(度)', max_length=2,required=False, initial="a")
+    体温_分 = forms.CharField(label='体温(分)', max_length=2,required=False, initial="a")
     chose性別 = (
         ("1","男性"),
         ("2","女性"),
     )
-    性別 = forms.ChoiceField(label='性別', choices=chose性別,required=False)
+    性別 = forms.ChoiceField(label='性別', choices=chose性別, required=False,)
 
 
-    接種回数 = forms.CharField(label='接種回数',max_length=2,required=False)
-    前回の摂取年 = forms.CharField(label='前回の摂取年',max_length=4,required=False)
-    前回の摂取月 = forms.CharField(label='前回の摂取月', max_length=2,required=False)
-    前回の摂取日 = forms.CharField(label='前回の摂取日', max_length=2,required=False)
-    前回のワクチンの種類 = forms.CharField(label='前回のワクチンの種類', max_length=30,required=False)
+    接種回数 = forms.CharField(label='接種回数',max_length=2, required=False, initial="a")
+    前回の摂取年 = forms.CharField(label='前回の摂取年', max_length=4, required=False, initial="a")
+    前回の摂取月 = forms.CharField(label='前回の摂取月', max_length=2, required=False, initial="a")
+    前回の摂取日 = forms.CharField(label='前回の摂取日', max_length=2, required=False, initial="a")
+    前回のワクチンの種類 = forms.CharField(label='前回のワクチンの種類', max_length=30,required=False, initial="a")
 
-    病名 = forms.CharField(label='病名',max_length=30,required=False)
-    具合悪い点 = forms.CharField(label='具合悪い点',max_length=30,required=False)
-    アレルギー = forms.CharField(label='アレルギー',max_length=30,required=False)
-    具合が悪くなった予防接種名 = forms.CharField(label='具合が悪くなった予防接種名',max_length=30,required=False)
-    症状 = forms.CharField(label='症状',max_length=30,required=False)
-    前回受けた予防接種名 = forms.CharField(label='前回受けた予防接種名', max_length=30,required=False)
-    前回受けた予防接種日 = forms.CharField(label='前回受けた予防接種日', max_length=6,required=False)
+    病名 = forms.CharField(label='病名', max_length=30, required=False, initial="a")
+    具合悪い点 = forms.CharField(label='具合悪い点', max_length=30, required=False, initial="a")
+    アレルギー = forms.CharField(label='アレルギー', max_length=30, required=False, initial="a")
+    具合が悪くなった予防接種名 = forms.CharField(label='具合が悪くなった予防接種名', max_length=30, required=False, initial="a")
+    症状 = forms.CharField(label='症状', max_length=30, required=False, initial="a")
+    前回受けた予防接種名 = forms.CharField(label='前回受けた予防接種名', max_length=30, required=False, initial="a")
+    前回受けた予防接種日 = forms.CharField(label='前回受けた予防接種日', max_length=6, required=False, initial="a")
 
 
     choseワクチン接種を以前接種したことはありますか = (
