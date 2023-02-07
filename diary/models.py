@@ -68,4 +68,54 @@ class Diary(models.Model):
         else:
             return self.title
 
+    class Diary2(models.Model):
+        """日記モデル2"""
 
+    id = models.AutoField(primary_key=True)
+
+    user = models.ForeignKey(CustomUser, verbose_name='ユーザー', on_delete=models.PROTECT)
+    title = models.CharField(verbose_name='タイトル', max_length=40, blank=True, null=True)
+
+    created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
+
+    記入日 = models.CharField(verbose_name='記入日', max_length=40, blank=True, null=True)
+    お名前 = models.CharField(verbose_name='お名前', max_length=40, blank=True, null=True)
+    ふりがな = models.CharField(verbose_name='ふりがな', max_length=40, blank=True, null=True)
+    生年月日 = models.CharField(verbose_name='生年月日', max_length=40, blank=True, null=True)
+    年齢 = models.CharField(verbose_name='年齢', max_length=3, blank=True, null=True)
+    性別 = models.CharField(verbose_name='性別', max_length=3, blank=True, null=True)
+    体温 = models.CharField(verbose_name='体温', max_length=7, blank=True, null=True)
+    郵便番号 = models.CharField(verbose_name='郵便番号', max_length=7, blank=True, null=True)
+    住所 = models.CharField(verbose_name='住所', max_length=7, blank=True, null=True)
+    電話番号 = models.CharField(verbose_name='電話番号', max_length=13, blank=True, null=True)
+    携帯電話番号 = models.CharField(verbose_name='携帯電話番号', max_length=13, blank=True, null=True)
+    症状 = models.CharField(verbose_name='症状を選択してください', max_length=13, blank=True, null=True)
+    血圧 = models.CharField(verbose_name='血圧を入力してください', max_length=13, blank=True, null=True)
+    治療中の病気 = models.CharField(verbose_name='治療中の病気', max_length=13, blank=True, null=True)
+    病名 = models.CharField(verbose_name='病名', max_length=13, blank=True, null=True)
+    病気 = models.CharField(verbose_name='病気', max_length=13, blank=True, null=True)
+    お薬 = models.CharField(verbose_name='お薬', max_length=13, blank=True, null=True)
+    お薬名 = models.CharField(verbose_name='お薬名', max_length=13, blank=True, null=True)
+    アレルギー = models.CharField(verbose_name='アレルギー', max_length=13, blank=True, null=True)
+    アレルギー名 = models.CharField(verbose_name='アレルギー名', max_length=13, blank=True, null=True)
+    手術経験 = models.CharField(verbose_name='手術経験', max_length=13, blank=True, null=True)
+    手術日 = models.CharField(verbose_name='手術日', max_length=13, blank=True, null=True)
+    手術病名 = models.CharField(verbose_name='手術病名', max_length=13, blank=True, null=True)
+    手術病院 = models.CharField(verbose_name='手術病院', max_length=13, blank=True, null=True)
+    お酒 = models.CharField(verbose_name='お酒', max_length=13, blank=True, null=True)
+    たばこ = models.CharField(verbose_name='たばこ', max_length=13, blank=True, null=True)
+    たばこ頻度 = models.CharField(verbose_name='たばこ頻度', max_length=13, blank=True, null=True)
+    たばこ期間 = models.CharField(verbose_name='たばこ期間', max_length=13, blank=True, null=True)
+    禁煙期間 = models.CharField(verbose_name='禁煙期間', max_length=13, blank=True, null=True)
+    妊娠 = models.CharField(verbose_name='妊娠', max_length=13, blank=True, null=True)
+    授乳中 = models.CharField(verbose_name='授乳中', max_length=13, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Diary2'
+
+    def __str__(self):
+        if self.title is None:
+            return "タイトルなし"
+        else:
+            return self.title

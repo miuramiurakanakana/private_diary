@@ -5,10 +5,13 @@ from django.contrib.staticfiles.urls import static
 from.import settings_common, settings_dev
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('diary.urls')),
     path('accounts/', include('allauth.urls')),
+
 ]
 
 # 開発サーバーでメディアを配信できるようにする設定

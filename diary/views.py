@@ -17,6 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import InquiryForm
 from.models import Diary
 
+
 logger = logging.getLogger(__name__)
 
 from django.views import generic
@@ -27,7 +28,7 @@ class IndexView(generic.TemplateView):
 class DiaryListView(LoginRequiredMixin, generic.ListView):
     model = Diary
     template_name = 'diary_list.html'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_queryset(self):
         diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
@@ -56,6 +57,7 @@ class InquiryView(generic.FormView):
         initial['都道府県'] = diary.都道府県
 
         return initial
+
 
     def form_valid(self, form):
 
