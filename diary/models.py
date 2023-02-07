@@ -67,3 +67,5 @@ class Diary(models.Model):
             return "タイトルなし"
         else:
             return self.title
+
+
