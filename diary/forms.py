@@ -9,14 +9,65 @@ class InquiryForm(forms.Form):
     email = forms.EmailField(label='メールアドレス')
     '''
 
-    都道府県 = forms.CharField(label='都道府県', max_length=30, required=False)
+    chose都道府県 = (
+        ("1", "北海"),
+        ("2", "青森"),
+        ("3", "岩手"),
+        ("4", "宮城"),
+        ("5", "秋田"),
+        ("6", "山形"),
+        ("7", "福島"),
+        ("8", "茨城"),
+        ("9", "栃木"),
+        ("10", "群馬"),
+        ("11", "埼玉"),
+        ("12", "千葉"),
+        ("13", "東京"),
+        ("14", "神奈川"),
+        ("15", "新潟"),
+        ("16", "富山"),
+        ("17", "石川"),
+        ("18", "福井"),
+        ("19", "山梨"),
+        ("20", "長野"),
+        ("21", "岐阜"),
+        ("22", "静岡"),
+        ("23", "愛知"),
+        ("24", "三重"),
+        ("25", "滋賀"),
+        ("26", "京都"),
+        ("27", "大阪"),
+        ("28", "兵庫"),
+        ("29", "奈良"),
+        ("30", "和歌山"),
+        ("31", "鳥取"),
+        ("32", "島根"),
+        ("33", "岡山"),
+        ("34", "広島"),
+        ("35", "山口"),
+        ("36", "徳島"),
+        ("37", "香川"),
+        ("38", "愛媛"),
+        ("39", "高知"),
+        ("40", "福岡"),
+        ("41", "佐賀"),
+        ("42", "長崎"),
+        ("43", "熊本"),
+        ("44", "大分"),
+        ("45", "宮崎"),
+        ("46", "鹿児島"),
+        ("47", "沖縄"),
+
+    )
+    都道府県 = forms.ChoiceField(label='都道府県', choices=chose都道府県, required=False)
+
     chose都道府県の区分 = (
         ("1", "都"),
         ("2", "道"),
         ("3", "府"),
         ("4", "県"),
     )
-    都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
+    #都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
     市町村 = forms.CharField(label='市町村', max_length=30, required=False)
     chose市町村の区分 = (
         ("1", "市"),
@@ -126,7 +177,7 @@ class InquiryForm(forms.Form):
         ("6", "免疫不全"),
         ("7", "毛細血管漏出症候群"),
     )
-    病名を選択してください = forms.ChoiceField(label='病名を選択してください♡', choices=chose病名を選択してください, required=False)
+    病名を選択してください = forms.ChoiceField(label='病名を選択してください', choices=chose病名を選択してください, required=False)
     上記以外の持病をもっていますか = forms.BooleanField(label='上記以外の持病をもっていますか？',  required=False)
     その他の病気 = forms.CharField(label='その他の病気', max_length=30, required=False)
 
@@ -302,9 +353,6 @@ class InquiryForm(forms.Form):
         self.fields['message'].widget.attrs['class'] = 'form-control'
         self.fields['message'].widget.attrs['placeholder'] = 'メッセージをここに入力してください。'
          '''
-
-
-
 
         def send_email(self):
 
