@@ -124,12 +124,14 @@ class InquiryView(generic.FormView):
 
 
         # 丸を描画する
-        is都道府県の区分 = form.cleaned_data['都道府県の区分']
-        if is都道府県の区分 == "1":
+        is都道府県 = form.cleaned_data['都道府県']
+        if is都道府県 == "13":
             cc.circle(195, 767, 7, 1, 0)  #都
-        elif is都道府県の区分 == "2":
+        elif is都道府県 == "1":
             cc.circle(212, 767, 7, 1, 0)  #道
-        elif is都道府県の区分 == "3":
+        elif is都道府県 == "26":
+            cc.circle(194, 755, 7, 1, 0)  #府
+        elif is都道府県 == "27":
             cc.circle(194, 755, 7, 1, 0)  #府
         else:
             cc.circle(212, 756, 7, 1, 0)  #県
