@@ -10,7 +10,7 @@ class InquiryForm(forms.Form):
     '''
 
     chose都道府県 = (
-        ("1", "北海"),
+        ("1", "北海道"),
         ("2", "青森"),
         ("3", "岩手"),
         ("4", "宮城"),
@@ -68,20 +68,18 @@ class InquiryForm(forms.Form):
     #    ("4", "県"),
     #)
     #都道府県の区分 = forms.ChoiceField(label='都道府県の区分', choices=chose都道府県の区分, required=False)
-    市町村 = forms.CharField(label='市町村', max_length=30, required=False)
-    chose市町村の区分 = (
+    市区町村 = forms.CharField(label='市区町村', max_length=30, required=False)
+    chose市区町村の区分 = (
         ("1", "市"),
         ("2", "区"),
         ("3", "町"),
         ("4", "村"),
     )
-    市町村の区分 = forms.ChoiceField(label='市町村の区分', choices=chose市町村の区分, required=False)
-    市町村以下の住所 = forms.CharField(label='市町村以下の住所', max_length=30, required=False, initial="a")
+    市区町村の区分 = forms.ChoiceField(label='市区町村の区分', choices=chose市区町村の区分, required=False)
+    市区町村以下の住所 = forms.CharField(label='市区町村以下の住所', max_length=30, required=False, initial="a")
     お名前 = forms.CharField(label='お名前', max_length=30,required=False, initial="a")
     カナ = forms.CharField(label='フリガナ', max_length=30,required=False, initial="a")
-    市外局番 = forms.CharField(label='市外局番', max_length=5,required=False, initial="a")
-    市内局番 = forms.CharField(label='市内局番', max_length=4,required=False, initial="a")
-    加入者番号 = forms.CharField(label='加入者番号', max_length=4,required=False, initial="a")
+    電話番号 = forms.CharField(label='電話番号', max_length=14,required=False)
     誕生日 = forms.CharField(label='誕生日', max_length=8,required=False, initial="a")
     年齢 = forms.CharField(label='年齢', max_length=3,required=False, initial="a")
     体温_度 = forms.CharField(label='体温(度)', max_length=2,required=False, initial="a")
@@ -166,7 +164,7 @@ class InquiryForm(forms.Form):
         ("1", "はい"),
         ("2", "いいえ"),
     )
-    _今日の予防接種について何か質問はありますか = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=chose_今日の予防接種について何か質問はありますか,widget=forms.RadioSelect(), required=False)
+    _今日の予防接種について何か質問はありますか = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=chose_今日の予防接種について何か質問はありますか, required=False)
     何らかの持病をもっていますか = forms.BooleanField(label='何らかの持病をもっていますか？', required=False)
     chose病名を選択してください = (
         ("1", "心臓病"),
@@ -230,22 +228,18 @@ class InquiryForm(forms.Form):
         self.fields['都道府県'].widget.attrs['placeholder'] = '都道府県名をここに入力してください。'
         #self.fields['都道府県の区分'].widget.attrs['class'] = 'form-control'
         #self.fields['都道府県の区分'].widget.attrs['placeholder'] = '都道府県の区分をここに入力してください。'
-        self.fields['市町村'].widget.attrs['class'] = 'form-control'
-        self.fields['市町村'].widget.attrs['placeholder'] = '市町村をここに入力してください。'
-        self.fields['市町村の区分'].widget.attrs['class'] = 'form-control'
-        self.fields['市町村の区分'].widget.attrs['placeholder'] = '市町村の区分をここに入力してください。'
-        self.fields['市町村以下の住所'].widget.attrs['class'] = 'form-control'
-        self.fields['市町村以下の住所'].widget.attrs['placeholder'] = '市町村以下の住所をここに入力してください。'
+        self.fields['市区町村'].widget.attrs['class'] = 'form-control'
+        self.fields['市区町村'].widget.attrs['placeholder'] = '市区町村をここに入力してください。'
+        self.fields['市区町村の区分'].widget.attrs['class'] = 'form-control'
+        self.fields['市区町村の区分'].widget.attrs['placeholder'] = '市区町村の区分をここに入力してください。'
+        self.fields['市区町村以下の住所'].widget.attrs['class'] = 'form-control'
+        self.fields['市区町村以下の住所'].widget.attrs['placeholder'] = '市町村以下の住所をここに入力してください。'
         self.fields['お名前'].widget.attrs['class'] = 'form-control'
         self.fields['お名前'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
         self.fields['カナ'].widget.attrs['class'] = 'form-control'
         self.fields['カナ'].widget.attrs['placeholder'] = 'お名前をここに入力してください。'
-        self.fields['市外局番'].widget.attrs['class'] = 'form-control'
-        self.fields['市外局番'].widget.attrs['placeholder'] = '市外局番をここに入力してください。'
-        self.fields['市内局番'].widget.attrs['class'] = 'form-control'
-        self.fields['市内局番'].widget.attrs['placeholder'] = '市内局番をここに入力してください。'
-        self.fields['加入者番号'].widget.attrs['class'] = 'form-control'
-        self.fields['加入者番号'].widget.attrs['placeholder'] = '加入者番号をここに入力してください。'
+        self.fields['電話番号'].widget.attrs['class'] = 'form-control'
+        self.fields['電話番号'].widget.attrs['placeholder'] = '電話番号をここに入力してください。'
         self.fields['誕生日'].widget.attrs['class'] = 'form-control'
         self.fields['誕生日'].widget.attrs['placeholder'] = '誕生日をここに入力してください。'
         self.fields['年齢'].widget.attrs['class'] = 'form-control'

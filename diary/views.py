@@ -79,6 +79,20 @@ class InquiryView(generic.FormView):
         pp = pagexobj(pages[0])
         cc.doForm(makerl(cc, pp))
 
+        cc.setFont(fontname, 10)  # フォントとサイズを指定
+        num = form.cleaned_data['電話番号']
+        cc.drawString(280, 708, num[0])  # x, y, 文字列を指定
+        cc.drawString(290, 708, num[1])  # x, y, 文字列を指定
+        cc.drawString(300, 708, num[2])  # x, y, 文字列を指定
+        cc.drawString(270, 692, num[3])  # x, y, 文字列を指定
+        cc.drawString(280, 692, num[4])  # x, y, 文字列を指定
+        cc.drawString(290, 692, num[5])  # x, y, 文字列を指定
+        cc.drawString(300, 692, num[6])  # x, y, 文字列を指定
+        cc.drawString(328, 692, num[7])  # x, y, 文字列を指定
+        cc.drawString(338, 692, num[8])  # x, y, 文字列を指定
+        cc.drawString(348, 692, num[9])  # x, y, 文字列を指定
+        cc.drawString(358, 692, num[10])  # x, y, 文字列を指定
+
         # 文字サイズで書き出し
         cc.setFont(fontname, 20)  # フォントとサイズを指定
         bird前回受けた予防接種日 = form.cleaned_data['誕生日']
@@ -99,6 +113,7 @@ class InquiryView(generic.FormView):
         cc.drawString(278, 664, old[1])  # x, y, 文字列を指定
         cc.drawString(295, 664, old[2])  # x, y, 文字列を指定
 
+
         tmp1 = form.cleaned_data['体温_度']
         tmp1 = "00"  # TODO 後で決しておく
         cc.drawString(483, 664, tmp1[0])  # x, y, 文字列を指定
@@ -113,35 +128,164 @@ class InquiryView(generic.FormView):
         cc.setFont(fontname, 15)  # フォントとサイズを指定
 
         #cc.drawString(60, 755, '京都')  # x, y, 文字列を指定
-        cc.drawString(60, 755, form.cleaned_data['都道府県'])  # x, y, 文字列を指定
-        cc.drawString(230, 755, form.cleaned_data['市町村'])  # x, y, 文字列を指定
-        cc.drawString(60, 728, form.cleaned_data['市町村以下の住所'])  # x, y, 文字列を指定
+        cc.drawString(230, 755, form.cleaned_data['市区町村'])  # x, y, 文字列を指定
+        cc.drawString(60, 728, form.cleaned_data['市区町村以下の住所'])  # x, y, 文字列を指定
         cc.drawString(60, 692, form.cleaned_data['お名前'])  # x, y, 文字列を指定
         cc.drawString(105, 615, form.cleaned_data['接種回数'])  # x, y, 文字列を指定
         cc.drawString(245, 615, form.cleaned_data['前回の摂取年'])  # x, y, 文字列を指定
         cc.drawString(316, 615, form.cleaned_data['前回の摂取月'])  # x, y, 文字列を指定
         cc.drawString(364, 615, form.cleaned_data['前回の摂取日'])  # x, y, 文字列を指定
 
-
-        # 丸を描画する
         is都道府県 = form.cleaned_data['都道府県']
-        if is都道府県 == "13":
+        if is都道府県 == "1":
+            cc.drawString(60, 755, '北海')
+            cc.circle(212, 767, 7, 1, 0)  # 道
+        elif is都道府県 == "2":
+            cc.drawString(60, 755, '青森')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "3":
+            cc.drawString(60, 755, '岩手')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "4":
+            cc.drawString(60, 755, '宮城')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "5":
+            cc.drawString(60, 755, '秋田')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "6":
+            cc.drawString(60, 755, '山形')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "7":
+            cc.drawString(60, 755, '福島')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "8":
+            cc.drawString(60, 755, '茨城')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "9":
+            cc.drawString(60, 755, '栃木')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "10":
+            cc.drawString(60, 755, '群馬')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "11":
+            cc.drawString(60, 755, '埼玉')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "12":
+            cc.drawString(60, 755, '千葉')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "13":
+            cc.drawString(60, 755, '東京')
             cc.circle(195, 767, 7, 1, 0)  #都
-        elif is都道府県 == "1":
-            cc.circle(212, 767, 7, 1, 0)  #道
+        elif is都道府県 == "14":
+            cc.drawString(60, 755, '神奈川')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "15":
+            cc.drawString(60, 755, '新潟')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "16":
+            cc.drawString(60, 755, '富山')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "17":
+            cc.drawString(60, 755, '石川')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "18":
+            cc.drawString(60, 755, '福井')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "19":
+            cc.drawString(60, 755, '山梨')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "20":
+            cc.drawString(60, 755, '長野')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "21":
+            cc.drawString(60, 755, '岐阜')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "22":
+            cc.drawString(60, 755, '静岡')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "23":
+            cc.drawString(60, 755, '愛知')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "24":
+            cc.drawString(60, 755, '三重')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "25":
+            cc.drawString(60, 755, '滋賀')
+            cc.circle(212, 756, 7, 1, 0)  # 県
         elif is都道府県 == "26":
+            cc.drawString(60, 755, '京都')
             cc.circle(194, 755, 7, 1, 0)  #府
         elif is都道府県 == "27":
+            cc.drawString(60, 755, '大阪')
             cc.circle(194, 755, 7, 1, 0)  #府
-        else:
-            cc.circle(212, 756, 7, 1, 0)  #県
+        elif is都道府県 == "28":
+            cc.drawString(60, 755, '兵庫')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "29":
+            cc.drawString(60, 755, '奈良')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "30":
+            cc.drawString(60, 755, '和歌山')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "31":
+            cc.drawString(60, 755, '鳥取')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "32":
+            cc.drawString(60, 755, '島根')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "33":
+            cc.drawString(60, 755, '岡山')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "34":
+            cc.drawString(60, 755, '広島')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "35":
+            cc.drawString(60, 755, '山口')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "36":
+            cc.drawString(60, 755, '徳島')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "37":
+            cc.drawString(60, 755, '香川')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "38":
+            cc.drawString(60, 755, '愛媛')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "39":
+            cc.drawString(60, 755, '高知')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "40":
+            cc.drawString(60, 755, '福岡')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "41":
+            cc.drawString(60, 755, '佐賀')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "42":
+            cc.drawString(60, 755, '長崎')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "43":
+            cc.drawString(60, 755, '熊本')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "44":
+            cc.drawString(60, 755, '大分')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "45":
+            cc.drawString(60, 755, '宮崎')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "46":
+            cc.drawString(60, 755, '鹿児島')
+            cc.circle(212, 756, 7, 1, 0)  # 県
+        elif is都道府県 == "47":
+            cc.drawString(60, 755, '沖縄')
+            cc.circle(212, 756, 7, 1, 0)  # 県
 
-        is市町村の区分 = form.cleaned_data['市町村の区分']
-        if is市町村の区分 == "1":
+
+        is市区町村の区分 = form.cleaned_data['市区町村の区分']
+        if is市区町村の区分 == "1":
             cc.circle(347, 767, 7, 1, 0)  # 市
-        elif is市町村の区分 == "2":
+        elif is市区町村の区分 == "2":
             cc.circle(365, 767, 7, 1, 0)  # 区
-        elif is市町村の区分 == "3":
+        elif is市区町村の区分 == "3":
             cc.circle(347, 755, 7, 1, 0)  # 町
         else:
             cc.circle(365, 755, 7, 1, 0)  # 村
@@ -276,9 +420,7 @@ class InquiryView(generic.FormView):
         # cc.drawString(60, 755, '京都')
         # x, y, 文字列を指定
         cc.drawString(60, 712, form.cleaned_data['カナ'])  # x, y, 文字列を指定
-        cc.drawString(280, 708, form.cleaned_data['市外局番'])   # x, y, 文字列を指定
-        cc.drawString(280, 692, form.cleaned_data['市内局番'])   # x, y, 文字列を指定
-        cc.drawString(328, 692, form.cleaned_data['加入者番号'])  # x, y, 文字列を指定
+
 
 
         cc.showPage()
