@@ -102,8 +102,6 @@ class InquiryForm(forms.Form):
     アレルギー = forms.CharField(label='アレルギー', max_length=30, required=False, initial="a")
     具合が悪くなった予防接種名 = forms.CharField(label='具合が悪くなった予防接種名', max_length=30, required=False, initial="a")
     症状 = forms.CharField(label='症状', max_length=30, required=False, initial="a")
-    前回受けた予防接種名 = forms.CharField(label='前回受けた予防接種名', max_length=30, required=False, initial="a")
-    前回受けた予防接種日 = forms.CharField(label='前回受けた予防接種日', max_length=6, required=False, initial="a")
 
 
     choseワクチン接種を以前接種したことはありますか = (
@@ -167,6 +165,7 @@ class InquiryForm(forms.Form):
     _今日の予防接種について何か質問はありますか = forms.ChoiceField(label='今日の予防接種について何か質問はありますか？', choices=chose_今日の予防接種について何か質問はありますか, required=False)
     何らかの持病をもっていますか = forms.BooleanField(label='何らかの持病をもっていますか？', required=False)
     chose病名を選択してください = (
+
         ("1", "心臓病"),
         ("2", "腎臓病"),
         ("3", "肝臓病"),
@@ -272,10 +271,7 @@ class InquiryForm(forms.Form):
         self.fields['具合が悪くなった予防接種名'].widget.attrs['placeholder'] = 'アレルギーのある予防接種名をここに入力してください'
         self.fields['症状'].widget.attrs['class'] = 'form-control'
         self.fields['症状'].widget.attrs['placeholder'] = '症状をここに入力してください'
-        self.fields['前回受けた予防接種名'].widget.attrs['class'] = 'form-control'
-        self.fields['前回受けた予防接種名'].widget.attrs['placeholder'] = '前回受けた予防接種名をここに入力してください'
-        self.fields['前回受けた予防接種日'].widget.attrs['class'] = 'form-control'
-        self.fields['前回受けた予防接種日'].widget.attrs['placeholder'] = '前回受けた予防接種日をここに入力してください'
+
 
         self.fields['ワクチン接種を以前接種したことはありますか'].widget.attrs['class'] = 'form-control'
         self.fields['ワクチン接種を以前接種したことはありますか'].widget.attrs['placeholder'] = '以前予防接種を受けたことはありますか？　はいorいいえでお応えください'

@@ -94,17 +94,17 @@ class InquiryView(generic.FormView):
         cc.drawString(358, 692, num[10])  # x, y, 文字列を指定
 
         # 文字サイズで書き出し
-        cc.setFont(fontname, 20)  # フォントとサイズを指定
-        bird前回受けた予防接種日 = form.cleaned_data['誕生日']
-        bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
-        cc.drawString(64, 664, bird前回受けた予防接種日[0])  # x, y, 文字列を指定
-        cc.drawString(81, 664, bird前回受けた予防接種日[1])  # x, y, 文字列を指定
-        cc.drawString(98, 664, bird前回受けた予防接種日[2])  # x, y, 文字列を指定
-        cc.drawString(115, 664, bird前回受けた予防接種日[3])  # x, y, 文字列を指定
-        cc.drawString(143, 664, bird前回受けた予防接種日[4])  # x, y, 文字列を指定
-        cc.drawString(160, 664, bird前回受けた予防接種日[5])  # x, y, 文字列を指定
-        cc.drawString(188, 664, bird前回受けた予防接種日[6])  # x, y, 文字列を指定
-        cc.drawString(205, 664, bird前回受けた予防接種日[7])  # x, y, 文字列を指定
+        # cc.setFont(fontname, 20)  # フォントとサイズを指定
+        #bird前回受けた予防接種日 = form.cleaned_data['誕生日']
+        #bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
+        #cc.drawString(64, 664, bird前回受けた予防接種日[0])  # x, y, 文字列を指定
+        #cc.drawString(81, 664, bird前回受けた予防接種日[1])  # x, y, 文字列を指定
+        #cc.drawString(98, 664, bird前回受けた予防接種日[2])  # x, y, 文字列を指定
+        #cc.drawString(115, 664, bird前回受けた予防接種日[3])  # x, y, 文字列を指定
+        #cc.drawString(143, 664, bird前回受けた予防接種日[4])  # x, y, 文字列を指定
+        #cc.drawString(160, 664, bird前回受けた予防接種日[5])  # x, y, 文字列を指定
+        #cc.drawString(188, 664, bird前回受けた予防接種日[6])  # x, y, 文字列を指定
+        #cc.drawString(205, 664, bird前回受けた予防接種日[7])  # x, y, 文字列を指定
 
 
         old = form.cleaned_data['年齢']
@@ -408,7 +408,7 @@ class InquiryView(generic.FormView):
         cc.drawString(235, 603, form.cleaned_data['前回のワクチンの種類'])  # x, y, 文字列を指定
         cc.drawString(70, 361, form.cleaned_data['具合が悪くなった予防接種名'])  # x, y, 文字列を指定
         cc.drawString(280, 361, form.cleaned_data['症状'])  # x, y, 文字列を指定
-        cc.drawString(225, 324, form.cleaned_data['前回受けた予防接種名'])  # x, y, 文字列を指定
+        # cc.drawString(225, 324, form.cleaned_data['前回受けた予防接種名'])  # x, y, 文字列を指定
         # TODO なんかうごかない動cc.drawString(370, 324, form.cleaned_data['前回受けた予防接種日'])  # x, y, 文字列を指定
         cc.drawString(190, 495, form.cleaned_data['処方されている薬名を記入してください'])  # x, y, 文字列を指定
         cc.drawString(330, 495, form.cleaned_data['その他に処方されている薬名を記入してください'])  # x, y, 文字列を指定
