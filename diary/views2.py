@@ -46,11 +46,10 @@ class Inquiry2View(generic.FormView):
         pp = pagexobj(pages[0])
         cc.doForm(makerl(cc, pp))
 
-
         # 位置指定〔　配列　〕　
         cc.setFont(fontname, 10)  # フォントとサイズを指定
         生年月日 = form.cleaned_data['生年月日']
-        生年月日 = "000000"  # TODO 後で決しておく'''
+        #生年月日 = "000000"  # TODO 後で決しておく'''
         cc.drawString(293, 746, 生年月日[0])  # x, y, 文字列を指定
         cc.drawString(300, 746, 生年月日[1])  # x, y, 文字列を指定
         cc.drawString(335, 746, 生年月日[2])  # x, y, 文字列を指定
@@ -59,7 +58,7 @@ class Inquiry2View(generic.FormView):
         cc.drawString(385, 746, 生年月日[5])  # x, y, 文字列を指定
 
         郵便番号 = form.cleaned_data['郵便番号']
-        郵便番号 = "0000000"  # TODO 後で決しておく'''
+        #郵便番号 = "0000000"  # TODO 後で決しておく'''
         cc.drawString(90, 713, 郵便番号[0])  # x, y, 文字列を指定
         cc.drawString(97, 713, 郵便番号[1])  # x, y, 文字列を指定
         cc.drawString(104, 713, 郵便番号[2])  # x, y, 文字列を指定

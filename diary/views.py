@@ -20,6 +20,9 @@ from.models import Diary
 logger = logging.getLogger(__name__)
 
 from django.views import generic
+
+
+
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
@@ -79,6 +82,9 @@ class InquiryView(generic.FormView):
         pp = pagexobj(pages[0])
         cc.doForm(makerl(cc, pp))
 
+
+
+
         cc.setFont(fontname, 10)  # フォントとサイズを指定
         num = form.cleaned_data['電話番号']
         cc.drawString(280, 708, num[0])  # x, y, 文字列を指定
@@ -93,34 +99,35 @@ class InquiryView(generic.FormView):
         cc.drawString(348, 692, num[9])  # x, y, 文字列を指定
         cc.drawString(358, 692, num[10])  # x, y, 文字列を指定
 
-        # 文字サイズで書き出し
-        # cc.setFont(fontname, 20)  # フォントとサイズを指定
-        #bird前回受けた予防接種日 = form.cleaned_data['誕生日']
-        #bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
-        #cc.drawString(64, 664, bird前回受けた予防接種日[0])  # x, y, 文字列を指定
-        #cc.drawString(81, 664, bird前回受けた予防接種日[1])  # x, y, 文字列を指定
-        #cc.drawString(98, 664, bird前回受けた予防接種日[2])  # x, y, 文字列を指定
-        #cc.drawString(115, 664, bird前回受けた予防接種日[3])  # x, y, 文字列を指定
-        #cc.drawString(143, 664, bird前回受けた予防接種日[4])  # x, y, 文字列を指定
-        #cc.drawString(160, 664, bird前回受けた予防接種日[5])  # x, y, 文字列を指定
-        #cc.drawString(188, 664, bird前回受けた予防接種日[6])  # x, y, 文字列を指定
-        #cc.drawString(205, 664, bird前回受けた予防接種日[7])  # x, y, 文字列を指定
 
+        cc.setFont(fontname, 20)  # フォントとサイズを指定
+        bird = form.cleaned_data['誕生日']
+        #bird前回受けた予防接種日 = "0000000000" # TODO 後で決しておく
+        cc.drawString(64, 664, bird[0])  # x, y, 文字列を指定
+        cc.drawString(81, 664, bird[1])  # x, y, 文字列を指定
+        cc.drawString(98, 664, bird[2])  # x, y, 文字列を指定
+        cc.drawString(115, 664, bird[3])  # x, y, 文字列を指定
+        cc.drawString(143, 664, bird[4])  # x, y, 文字列を指定
+        cc.drawString(160, 664, bird[5])  # x, y, 文字列を指定
+        cc.drawString(188, 664, bird[6])  # x, y, 文字列を指定
+        cc.drawString(205, 664, bird[7])  # x, y, 文字列を指定
+
+        cc.setFont(fontname, 20)  # フォントとサイズを指定
 
         old = form.cleaned_data['年齢']
-        old = "020"  # TODO 後で決しておく
+        #old = "020"  # TODO 後で決しておく
         cc.drawString(261, 664, old[0])  # x, y, 文字列を指定
         cc.drawString(278, 664, old[1])  # x, y, 文字列を指定
         cc.drawString(295, 664, old[2])  # x, y, 文字列を指定
 
 
         tmp1 = form.cleaned_data['体温_度']
-        tmp1 = "00"  # TODO 後で決しておく
+        #tmp1 = "00"  # TODO 後で決しておく
         cc.drawString(483, 664, tmp1[0])  # x, y, 文字列を指定
         cc.drawString(500, 664, tmp1[1])  # x, y, 文字列を指定
 
         tmp2 = form.cleaned_data['体温_分']
-        tmp2 = "0"  # TODO 後で決しておく
+        #tmp2 = "0"  # TODO 後で決しておく
         cc.drawString(540, 664, tmp2[0])  # x, y, 文字列を指定
 
 
@@ -292,13 +299,13 @@ class InquiryView(generic.FormView):
 
 
         isMale = form.cleaned_data['性別']
-        if isMale=="1":
+        if isMale == "1":
             cc.drawString(334, 666, '✓')
         else:
             cc.drawString(370, 664, '✓')
 
         isWakutin = form.cleaned_data['ワクチン接種を以前接種したことはありますか']
-        if isWakutin=="1":
+        if isWakutin == "1":
             cc.drawString(438, 615, '✓')
         else:
             cc.drawString(484, 615, '✓')

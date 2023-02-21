@@ -5,6 +5,18 @@ from django.core.mail import EmailMessage
 
 class Inquiry2Form(forms.Form):
 
+    import datetime
+    today = datetime.date.today()
+
+    year = today.year
+    month = today.month
+    day = today.day
+
+    print('year')  # 2018
+    print('month')  # 3
+    print('day')  # 12
+
+
     記入日 = forms.CharField(label='記入日', max_length=4, required=False)
     お名前 = forms.CharField(label='お名前', max_length=30, required=False)
     ふりがな = forms.CharField(label='ふりがな', max_length=30, required=False)

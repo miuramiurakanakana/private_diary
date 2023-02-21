@@ -4,9 +4,13 @@
 {% block active_inquiry %}active{% endblock %}
 
 {% block contents %}
+
 <div class="container">
     <div class="my-div-style">
         <form method="post">
+
+            <input type="date"></br>
+
             {% csrf_token %}
 
             {{ form.non_field_errors }}
