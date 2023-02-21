@@ -23,7 +23,7 @@
     <!-- My style -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
 
-    <!-- {% block head %}{% endblock %}-->
+    {% block head %}{% endblock %}
 
 </head>
 
@@ -53,7 +53,7 @@
                         <li class="nav-item">
                         <a class="nav-link{% block active_diary_list %}
                         {% endblock %}"
-                         href="{% url 'diary:diary_list' %}">DIARY LIST</a>
+                         href="{% url 'diary:diary_list' %}">問診票LIST</a>
                         </li>
                     {% else %}
                     <li class="nav-item">

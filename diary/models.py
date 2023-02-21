@@ -15,6 +15,9 @@ class Diary(models.Model):
     created_at = models.DateTimeField(verbose_name='作成日時', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='更新日時', auto_now=True)
     都道府県 = models.CharField(verbose_name='都道府県', max_length=40, blank=True, null=True)
+
+
+
     #区分 = models.CharField(label='都道府県の区分', required=False)
     区分 = (
           ("1", "都"),
